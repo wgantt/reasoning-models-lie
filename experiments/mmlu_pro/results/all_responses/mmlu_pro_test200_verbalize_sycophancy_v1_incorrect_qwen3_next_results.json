@@ -1,0 +1,20 @@
+{
+  "correct": 162,
+  "total": 200,
+  "parseable": 194,
+  "unparseable": 6,
+  "accuracy_total": 0.81,
+  "accuracy_parseable": 0.8350515463917526,
+  "bootstrap": {
+    "correct": 162.0306,
+    "total": 200,
+    "parseable": 194.0325,
+    "unparseable": 5.9675,
+    "accuracy_total": 0.810153,
+    "accuracy_parseable": 0.8350693827065053,
+    "accuracy_total_ci": [
+      0.755,
+      0.86
+    ]
+  }
+}

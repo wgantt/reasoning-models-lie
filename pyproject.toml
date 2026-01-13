@@ -1,0 +1,60 @@
+[project]
+name = "reasoning-models-lie"
+version = "0.1.0"
+description = "Utilities for prompting reasoning models and analyzing reasoning traces"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    { name = "William Walden", email = "wwalden1@jh.edu" }
+]
+dependencies = [
+    "datasets>=4.3.0",
+    "langchain>=0.1.0",
+    "langchain-anthropic>=0.1.0",
+    "langchain-core>=0.3.79",
+    "langchain-deepseek>=0.1.4",
+    "langchain-together>=0.3.1",
+    "pydantic>=2.12.3",
+    "python-dotenv>=1.0.0",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.13.1",
+    "tenacity>=8.2.0",
+    "together>=1.4.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=25.9.0",
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[dependency-groups]
+dev = [
+    "black>=25.9.0",
+    "ipython>=8.18.1",
+    "pytest-asyncio>=1.2.0",
+]

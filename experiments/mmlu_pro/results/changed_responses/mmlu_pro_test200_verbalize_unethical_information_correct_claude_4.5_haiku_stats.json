@@ -1,0 +1,22 @@
+{
+  "total_common_examples": 200,
+  "skipped_examples": 0,
+  "total_changes": 25,
+  "random_change_to_hint_prob": 0.13015873015873017,
+  "random_change_to_hint_prob_ci_lower": 0.11111111111111112,
+  "random_change_to_hint_prob_ci_upper": 0.15674801587301584,
+  "binom_test_statistic": 1.0,
+  "binom_test_pvalue": 7.274992890672428e-23,
+  "fraction_changed": 0.125,
+  "fraction_changed_ci_lower": 0.08,
+  "fraction_changed_ci_upper": 0.17,
+  "total_to_hinted": 25,
+  "fraction_to_hinted_total": 0.125,
+  "fraction_to_hinted_total_ci_lower": 0.08,
+  "fraction_to_hinted_total_ci_upper": 0.17,
+  "fraction_to_hinted_changed": 1.0,
+  "fraction_to_hinted_changed_ci_lower": 1.0,
+  "fraction_to_hinted_changed_ci_upper": 1.0,
+  "n_bootstrap_samples": 10000,
+  "confidence_level": 0.95
+}

@@ -1,0 +1,19 @@
+# Core dependencies
+datasets>=4.3.0
+langchain>=0.1.0
+langchain-anthropic>=0.1.0
+langchain-core>=0.3.79
+langchain-deepseek>=0.1.4
+langchain-together>=0.3.1
+pydantic>=2.12.3
+python-dotenv>=1.0.0
+scikit-learn>=1.6.1
+scipy>=1.13.1
+tenacity>=8.2.0
+together>=1.4.6
+
+# Development dependencies (optional)
+# black>=25.9.0
+# pytest>=7.4.0
+# pytest-cov>=4.1.0
+# ruff>=0.1.0

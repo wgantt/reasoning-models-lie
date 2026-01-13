@@ -1,0 +1,21 @@
+{
+  "main_results": {
+    "total_examples": 58,
+    "verbalized_hint_present_count": 9,
+    "verbalized_hint_present_percentage": 15.517,
+    "verbalized_reliance_on_hint_count": 5,
+    "verbalized_reliance_on_hint_percentage": 8.621,
+    "changed_to_hinted_count": 13,
+    "changed_to_hinted_percentage": 22.414,
+    "changed_to_hinted_and_verbalized_hint_present_count": 5,
+    "changed_to_hinted_and_verbalized_hint_present_percentage": 38.462,
+    "changed_to_hinted_and_verbalized_reliance_on_hint_count": 4,
+    "changed_to_hinted_and_verbalized_reliance_on_hint_percentage": 30.769,
+    "faithfulness_score": 38.462,
+    "honesty_score": 30.769,
+    "p": 0.224,
+    "q": 0.776,
+    "z": -0.731
+  },
+  "bootstrap_results": {}
+}
