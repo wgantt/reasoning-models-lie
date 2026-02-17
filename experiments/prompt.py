@@ -15,6 +15,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from reasoning_models_lie.prompting.prompting_langchain import (
     ReasoningModelClientLangChain,
     LangChainModelType,
+    REASONING_EFFORT_VALUES,
+    REASONING_SUMMARY_VALUES,
 )
 from reasoning_models_lie.prompting.prompting_together import (
     ReasoningModelClientTogether,
@@ -38,6 +40,8 @@ async def process_prompts_async(
     temperature: float = 0.7,
     max_tokens: int = 8192,
     max_thinking_tokens: int = 4096,
+    reasoning_effort: str = "medium",
+    reasoning_summary: str = "auto",
     max_retries: int = 3,
     max_concurrent_requests: int = 10,
     examples_per_write: int = 10,
@@ -63,6 +67,8 @@ async def process_prompts_async(
         temperature: Sampling temperature (0.0 to 1.0)
         max_tokens: Maximum tokens in the response
         max_thinking_tokens: Number of tokens allocated for model "thinking"
+        reasoning_effort: Reasoning effort for OpenAI models
+        reasoning_summary: Reasoning summary length for OpenAI models
         max_retries: Maximum number of retries for rate limiting
         max_concurrent_requests: Maximum concurrent requests for async operations
         examples_per_write: Number of examples to process before incrementally writing to file
@@ -134,6 +140,8 @@ async def process_prompts_async(
                 temperature=temperature,
                 max_tokens=max_tokens,
                 max_thinking_tokens=max_thinking_tokens,
+                reasoning_effort=reasoning_effort,
+                reasoning_summary=reasoning_summary,
                 max_retries=max_retries,
                 max_concurrent_requests=max_concurrent_requests,
                 model_kwargs=model_kwargs,
@@ -240,6 +248,10 @@ def main():
         type=str,
         required=True,
         choices=[
+            "gpt-5-nano-2025-08-07",
+            "gpt-5-mini-2025-08-07",
+            "gpt-5-2025-08-07",
+            "gpt-5.2-2025-12-11",
             "claude-sonnet-4-5-20250929",
             "claude-haiku-4-5-20251001",
             "claude-3-7-sonnet-20250219",
@@ -283,6 +295,20 @@ def main():
         help="Number of tokens allocated for model 'thinking'. Default: 2048",
     )
     parser.add_argument(
+        "--reasoning-effort",
+        type=str,
+        choices=REASONING_EFFORT_VALUES,
+        default=None,
+        help="Reasoning effort levels for OpenAI models",
+    )
+    parser.add_argument(
+        "--reasoning-summary",
+        type=str,
+        choices=REASONING_SUMMARY_VALUES,
+        default="auto",
+        help="Reasoning summary length for OpenAI models",
+    )
+    parser.add_argument(
         "--max-retries",
         type=int,
         default=3,
@@ -322,6 +348,10 @@ def main():
 
     # Convert model type string to ModelType enum
     model_type_map = {
+        "gpt-5-nano-2025-08-07": LangChainModelType.GPT_5_NANO,
+        "gpt-5-mini-2025-08-07": LangChainModelType.GPT_5_MINI,
+        "gpt-5-2025-08-07": LangChainModelType.GPT_5,
+        "gpt-5.2-2025-12-11": LangChainModelType.GPT_5_2,
         "claude-sonnet-4-5-20250929": LangChainModelType.CLAUDE_4_5_SONNET,
         "claude-haiku-4-5-20251001": LangChainModelType.CLAUDE_4_5_HAIKU,
         "claude-3-7-sonnet-20250219": LangChainModelType.CLAUDE_3_7_SONNET,
@@ -355,6 +385,8 @@ def main():
                 temperature=args.temperature,
                 max_tokens=args.max_tokens,
                 max_thinking_tokens=args.max_thinking_tokens,
+                reasoning_effort=args.reasoning_effort,
+                reasoning_summary=args.reasoning_summary,
                 max_retries=args.max_retries,
                 max_concurrent_requests=args.max_concurrent_requests,
                 examples_per_write=args.examples_per_write,

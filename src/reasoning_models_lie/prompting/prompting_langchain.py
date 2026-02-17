@@ -9,6 +9,7 @@ from enum import Enum
 from typing import Any, Dict, List, Optional
 
 from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
 from langchain_together import ChatTogether
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
@@ -27,10 +28,18 @@ LOGGER = logging.getLogger(__name__)
 class LangChainModelType(Enum):
     """Supported reasoning model types."""
 
+    GPT_5_NANO = "gpt-5-nano-2025-08-07"
+    GPT_5_MINI = "gpt-5-mini-2025-08-07"
+    GPT_5 = "gpt-5-2025-08-07"
+    GPT_5_2 = "gpt-5.2-2025-12-11"
     CLAUDE_4_5_SONNET = "claude-sonnet-4-5-20250929"
     CLAUDE_4_5_HAIKU = "claude-haiku-4-5-20251001"
     CLAUDE_3_7_SONNET = "claude-3-7-sonnet-20250219"
     DEEPSEEK_R1 = "deepseek-ai/DeepSeek-R1"
+
+
+REASONING_EFFORT_VALUES = set([None, "minimal", "low", "medium", "high"])
+REASONING_SUMMARY_VALUES = set(["auto", "concise", "detailed"])
 
 
 class ReasoningModelClientLangChain:
@@ -47,6 +56,8 @@ class ReasoningModelClientLangChain:
         temperature: float = 0.7,
         max_tokens: int = 4096,
         max_thinking_tokens: int = 2048,
+        reasoning_effort: Optional[str] = "medium",
+        reasoning_summary: str = "auto",
         max_retries: int = 3,
         max_concurrent_requests: int = 10,
         model_kwargs: Dict[str, Any] = {},
@@ -60,6 +71,9 @@ class ReasoningModelClientLangChain:
             temperature: Sampling temperature (0.0 to 1.0)
             max_tokens: Maximum tokens in the response
             max_thinking_tokens: Number of tokens allocated for model "thinking"
+            reasoning_effort: Reasoning effort for OpenAI models ("low", "medium", or "high")
+            reasoning_summary: How concise the reasoning summary should be for
+                OpenAI models ("auto", "concise", "detailed")
             max_retries: Maximum number of retries for rate limiting
             max_concurrent_requests: Maximum concurrent requests for async operations
             model_kwargs: Additional provider-specific parameters
@@ -99,6 +113,14 @@ class ReasoningModelClientLangChain:
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.max_thinking_tokens = max_thinking_tokens
+        assert (
+            reasoning_effort is None or reasoning_effort in REASONING_EFFORT_VALUES
+        ), f"Invalid reasoning_effort parameter: {reasoning_effort}"
+        self.reasoning_effort = reasoning_effort
+        assert (
+            reasoning_summary in REASONING_SUMMARY_VALUES
+        ), f"Invalid reasoning_summary parameter: {reasoning_summary}"
+        self.reasoning_summary = reasoning_summary
         self.model_kwargs = model_kwargs
 
         # Retry configuration
@@ -135,6 +157,34 @@ class ReasoningModelClientLangChain:
                     api_key=self.api_key,
                     max_tokens=self.max_tokens,
                     thinking=thinking_dict,
+                    **self.model_kwargs,
+                ).with_retry(
+                    stop_after_attempt=self.max_retries,
+                    wait_exponential_jitter=True,
+                )
+            elif model_type in [
+                LangChainModelType.GPT_5_NANO,
+                LangChainModelType.GPT_5_MINI,
+                LangChainModelType.GPT_5,
+                LangChainModelType.GPT_5_2,
+            ]:
+                api_key = api_key or os.getenv("OPENAI_API_KEY")
+                if not api_key:
+                    raise ValueError(
+                        "OPENAI_API_KEY must be set in environment or passed as api_key parameter"
+                    )
+                if self.max_thinking_tokens == 0 or self.reasoning_effort is None:
+                    reasoning_dict = None
+                else:
+                    reasoning_dict = {
+                        "effort": self.reasoning_effort,
+                        "summary": self.reasoning_summary,
+                    }
+                self.client = ChatOpenAI(
+                    model=self.model_type.value,
+                    api_key=self.api_key,
+                    max_completion_tokens=self.max_tokens,
+                    reasoning=reasoning_dict,
                     **self.model_kwargs,
                 ).with_retry(
                     stop_after_attempt=self.max_retries,
@@ -390,6 +440,10 @@ class ReasoningModelClientLangChain:
         """
         try:
             if self.model_type in {
+                LangChainModelType.GPT_5_NANO,
+                LangChainModelType.GPT_5_MINI,
+                LangChainModelType.GPT_5,
+                LangChainModelType.GPT_5_2,
                 LangChainModelType.CLAUDE_3_7_SONNET,
                 LangChainModelType.CLAUDE_4_5_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
@@ -447,11 +501,18 @@ class ReasoningModelClientLangChain:
         """
         try:
             if self.model_type in {
+                LangChainModelType.GPT_5_NANO,
+                LangChainModelType.GPT_5_MINI,
+                LangChainModelType.GPT_5,
+                LangChainModelType.GPT_5_2,
                 LangChainModelType.CLAUDE_3_7_SONNET,
                 LangChainModelType.CLAUDE_4_5_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
             }:
-                if self.max_thinking_tokens == 0:
+                if (
+                    self.model_type.value.startswith("gpt")
+                    and self.reasoning_effort is None
+                ) or (self.max_thinking_tokens == 0):
                     # When thinking is disabled, response is a string
                     if not isinstance(response.content, str):
                         raise ResponseParsingError("Response content is not a string")
