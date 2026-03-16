@@ -26,7 +26,16 @@ if __name__ == "__main__":
     parser.add_argument(
         "--n_samples", type=int, default=10000, help="Number of bootstrap samples."
     )
+    parser.add_argument(
+        "--include_per_example",
+        action="store_true",
+        help="Include per-example correctness details in the output JSON.",
+    )
     args = parser.parse_args()
-    metrics = evaluate_multiple_choice(args.input_file, n_samples=args.n_samples)
+    metrics = evaluate_multiple_choice(
+        args.input_file,
+        n_samples=args.n_samples,
+        include_per_example=args.include_per_example,
+    )
     with open(args.output_file, "w") as f:
         json.dump(metrics, f, indent=2)

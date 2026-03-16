@@ -52,8 +52,8 @@ def parse_multiple_choice_answer(answer_str: str) -> str:
 
 
 def evaluate_multiple_choice(
-    results_file: str, n_samples: int = 10000
-) -> Dict[str, int | float]:
+    results_file: str, n_samples: int = 10000, include_per_example: bool = False
+) -> Dict[str, Any]:
     """Evaluate multiple-choice results from a JSONL file with bootstrap confidence intervals.
 
     Computes accuracy metrics with bootstrap confidence intervals for model responses
@@ -62,6 +62,8 @@ def evaluate_multiple_choice(
     Args:
         results_file: Path to the JSONL file containing evaluation results.
         n_samples: Number of bootstrap samples for confidence interval computation.
+        include_per_example: Whether to include per-example correctness details
+            in the returned results.
 
     Returns:
         Dictionary containing:
@@ -77,11 +79,22 @@ def evaluate_multiple_choice(
     correct = 0
     unparseable = 0
     total = len(results)
+    per_example_results = []
     for r in results:
         instance_id = r["instance_id"]
         if "meta" not in r or "answer" not in r["meta"]:
             LOGGER.warning(f"Missing gold answer for instance {instance_id}, skipping.")
             unparseable += 1
+            if include_per_example:
+                per_example_results.append(
+                    {
+                        "instance_id": instance_id,
+                        "gold_answer": None,
+                        "predicted_answer": None,
+                        "is_parseable": False,
+                        "is_correct": False,
+                    }
+                )
             continue
 
         gold_answer = r["meta"]["answer"]
@@ -90,6 +103,16 @@ def evaluate_multiple_choice(
                 f"Invalid gold answer '{gold_answer}' for instance {instance_id}, skipping."
             )
             unparseable += 1
+            if include_per_example:
+                per_example_results.append(
+                    {
+                        "instance_id": instance_id,
+                        "gold_answer": gold_answer,
+                        "predicted_answer": None,
+                        "is_parseable": False,
+                        "is_correct": False,
+                    }
+                )
             continue
 
         if "result" not in r or "response" not in r["result"]:
@@ -97,14 +120,54 @@ def evaluate_multiple_choice(
                 f"Missing model response for instance {instance_id}, skipping."
             )
             unparseable += 1
+            if include_per_example:
+                per_example_results.append(
+                    {
+                        "instance_id": instance_id,
+                        "gold_answer": gold_answer,
+                        "predicted_answer": None,
+                        "is_parseable": False,
+                        "is_correct": False,
+                    }
+                )
             continue
 
         raw_response = r["result"]["response"]
         predicted_answer = parse_multiple_choice_answer(raw_response)
         if predicted_answer not in MULTIPLE_CHOICE_OPTIONS:
             unparseable += 1
+            if include_per_example:
+                per_example_results.append(
+                    {
+                        "instance_id": instance_id,
+                        "gold_answer": gold_answer,
+                        "predicted_answer": predicted_answer or None,
+                        "is_parseable": False,
+                        "is_correct": False,
+                    }
+                )
         elif predicted_answer == gold_answer:
             correct += 1
+            if include_per_example:
+                per_example_results.append(
+                    {
+                        "instance_id": instance_id,
+                        "gold_answer": gold_answer,
+                        "predicted_answer": predicted_answer,
+                        "is_parseable": True,
+                        "is_correct": True,
+                    }
+                )
+        elif include_per_example:
+            per_example_results.append(
+                {
+                    "instance_id": instance_id,
+                    "gold_answer": gold_answer,
+                    "predicted_answer": predicted_answer,
+                    "is_parseable": True,
+                    "is_correct": False,
+                }
+            )
 
     parsable_correct = correct
     parsable_incorrect = total - unparseable - parsable_correct
@@ -173,5 +236,7 @@ def evaluate_multiple_choice(
         "accuracy_parseable": correct / parseable if parseable > 0 else 0,
         "bootstrap": bootstrap_results,
     }
+    if include_per_example:
+        results["per_example_results"] = per_example_results
     LOGGER.info(f"GPQA Evaluation Results: {pprint(results)}")
     return results
