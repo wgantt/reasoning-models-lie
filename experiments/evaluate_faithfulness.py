@@ -31,6 +31,11 @@ if __name__ == "__main__":
     parser.add_argument("input_file", type=str, help="Path to the input JSONL file")
     parser.add_argument("output_file", type=str, help="Path to the output JSON file")
     parser.add_argument(
+        "--include_per_example_results",
+        action="store_true",
+        help="Include per-example results",
+    )
+    parser.add_argument(
         "--n_bootstrap",
         type=int,
         default=10000,
@@ -55,7 +60,9 @@ if __name__ == "__main__":
     else:
         raise ValueError(f"Unsupported task: {args.task}")
 
-    main_results = evaluate_faithfulness(d)
+    main_results = evaluate_faithfulness(
+        d, include_per_example_results=args.include_per_example_results
+    )
     if (
         main_results["faithfulness_score_normalized"] is None
         or main_results["honesty_score_normalized"] is None
@@ -76,5 +83,7 @@ if __name__ == "__main__":
         }
     main_results = {k: round(v, 3) for k, v in main_results.items() if v is not None}
     all_results = {"main_results": main_results, "bootstrap_results": bootstrap_results}
+    if args.include_per_example_results:
+        all_results["per_example_results"] = main_results.get("per_example_results", [])
     with open(args.output_file, "w") as f:
         json.dump(all_results, f, indent=2)
