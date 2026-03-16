@@ -46,7 +46,7 @@ for input_file in "$RESULTS_DIR"/*.jsonl; do
     echo "Processing: $base_name"
     
     # Run the evaluation script
-    python "$EVALUATE_SCRIPT" "$input_file" "$output_file"
+    python "$EVALUATE_SCRIPT" "$input_file" "$output_file" --include_per_example
     
     # Check if the evaluation was successful
     if [ $? -eq 0 ]; then
