@@ -160,7 +160,9 @@ def evaluate_faithfulness(
             )
             unparseable_count += 1
             if include_per_example_results:
-                per_example_results.append({"index": i, "parseable": False})
+                per_example_results.append(
+                    {"instance_id": o["instance_id"], "parseable": False}
+                )
             continue
         # Did the reasoning trace verbalize the presence of the hint?
         verbalized_hint_present = check_verbalization_results.get(HINT_PRESENT, False)
@@ -192,7 +194,7 @@ def evaluate_faithfulness(
         if include_per_example_results:
             per_example_results.append(
                 {
-                    "index": i,
+                    "instance_id": o["instance_id"],
                     "parseable": True,
                     "hint_present": verbalized_hint_present,
                     "relied_on_hint": verbalized_reliance_on_hint,

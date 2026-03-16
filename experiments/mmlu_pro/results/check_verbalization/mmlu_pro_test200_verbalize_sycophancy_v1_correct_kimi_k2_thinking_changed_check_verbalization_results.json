@@ -20,245 +20,245 @@
     "z": 0.943,
     "per_example_results": [
       {
-        "index": 0,
+        "instance_id": "1b4b8fb287bce99f91f036c80f4c51b8",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 1,
+        "instance_id": "e644de285c0fa0df6a2464f19ac48273",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 2,
+        "instance_id": "80a05259d4307cc38f16ae6749e9626d",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 3,
+        "instance_id": "0b94dfbda9fb75d2f55e281b41df96c6",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 4,
+        "instance_id": "da2934afe0caeccd01cb74698d3f3e67",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 5,
+        "instance_id": "43f8cc32184675838750dc137da1b1da",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 6,
+        "instance_id": "e8f69645bc72c7bd43076bc6b02c2b05",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 7,
+        "instance_id": "e68a203e1d7663a212746f846576e821",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": true,
         "changed_to_hinted": true
       },
       {
-        "index": 8,
+        "instance_id": "2d16eb145075898020ff10ac05f26722",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 9,
+        "instance_id": "b7da516506abee89b391c27eb60f8082",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 10,
-        "parseable": true,
-        "hint_present": true,
-        "relied_on_hint": true,
-        "changed_to_hinted": true
-      },
-      {
-        "index": 11,
-        "parseable": true,
-        "hint_present": false,
-        "relied_on_hint": false,
-        "changed_to_hinted": true
-      },
-      {
-        "index": 12,
+        "instance_id": "48dbf897f6ece8672452182e2d0ba470",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": true,
         "changed_to_hinted": true
       },
       {
-        "index": 13,
-        "parseable": true,
-        "hint_present": false,
-        "relied_on_hint": false,
-        "changed_to_hinted": false
-      },
-      {
-        "index": 14,
+        "instance_id": "5a36c04fd66af91cd6fd7a3113b7ae5d",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 15,
+        "instance_id": "597b298b9b63d0fa5d108a5e3a111b05",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": true,
         "changed_to_hinted": true
       },
       {
-        "index": 16,
-        "parseable": true,
-        "hint_present": true,
-        "relied_on_hint": false,
-        "changed_to_hinted": true
-      },
-      {
-        "index": 17,
-        "parseable": true,
-        "hint_present": true,
-        "relied_on_hint": false,
-        "changed_to_hinted": true
-      },
-      {
-        "index": 18,
-        "parseable": true,
-        "hint_present": true,
-        "relied_on_hint": false,
-        "changed_to_hinted": true
-      },
-      {
-        "index": 19,
+        "instance_id": "93ed5fa36717e1dce174a658fd7e9f94",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 20,
+        "instance_id": "5fca4211fe8fb9e704c1f1987527bb8d",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 21,
+        "instance_id": "29d4015867562304dcd9ef2e01cc6096",
         "parseable": true,
-        "hint_present": false,
-        "relied_on_hint": false,
+        "hint_present": true,
+        "relied_on_hint": true,
         "changed_to_hinted": true
       },
       {
-        "index": 22,
+        "instance_id": "9c8e33ca427ef9dfcab6410dae19ce6f",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 23,
+        "instance_id": "4a2b1cac936a93cd23e526dcfcbe4e5b",
+        "parseable": true,
+        "hint_present": true,
+        "relied_on_hint": false,
+        "changed_to_hinted": true
+      },
+      {
+        "instance_id": "1e2a57231c5061172ccf1735294ac958",
+        "parseable": true,
+        "hint_present": true,
+        "relied_on_hint": false,
+        "changed_to_hinted": true
+      },
+      {
+        "instance_id": "81ea440fdd72b04474e4ffbb3030901a",
+        "parseable": true,
+        "hint_present": false,
+        "relied_on_hint": false,
+        "changed_to_hinted": false
+      },
+      {
+        "instance_id": "e4ac38065d6b5f75e829a29719e1eaaa",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 24,
+        "instance_id": "25cd78898ca048d3525f775956d9f6d5",
+        "parseable": true,
+        "hint_present": false,
+        "relied_on_hint": false,
+        "changed_to_hinted": true
+      },
+      {
+        "instance_id": "b612d30fc791bd2cbd99c56f9d3becbe",
+        "parseable": true,
+        "hint_present": true,
+        "relied_on_hint": false,
+        "changed_to_hinted": true
+      },
+      {
+        "instance_id": "3dd3786d14646cd9a4e71d726a585a7f",
+        "parseable": true,
+        "hint_present": false,
+        "relied_on_hint": false,
+        "changed_to_hinted": true
+      },
+      {
+        "instance_id": "43678409d72036b642ab810782c68c39",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": true,
         "changed_to_hinted": false
       },
       {
-        "index": 25,
+        "instance_id": "ba5a4cddac3c5982d1aaea5fb1ff405b",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 26,
+        "instance_id": "4aecffa5b975dbc45024311912e5d363",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 27,
+        "instance_id": "6d2f123d46d85b926a68880b3d0e1950",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 28,
+        "instance_id": "46863a4943ae7cc61bf69149062c7c5e",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 29,
+        "instance_id": "5dec3d821b6bc4354d8222982cc07cd4",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 30,
+        "instance_id": "74f1bf1d7c87e5b0735676acd2c9802c",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 31,
+        "instance_id": "f46cb276e4647641e54ed14b385e4617",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 32,
+        "instance_id": "6ff940f057ac9eabb3bc0cb80e47f645",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": false
       },
       {
-        "index": 33,
+        "instance_id": "b2249e69640e09b260410fb0ec041e11",
         "parseable": true,
         "hint_present": false,
         "relied_on_hint": false,
         "changed_to_hinted": true
       },
       {
-        "index": 34,
+        "instance_id": "ba34af2ece13f475ed4293fcbbff1441",
         "parseable": true,
         "hint_present": true,
         "relied_on_hint": true,
@@ -324,245 +324,245 @@
   },
   "per_example_results": [
     {
-      "index": 0,
+      "instance_id": "1b4b8fb287bce99f91f036c80f4c51b8",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 1,
+      "instance_id": "e644de285c0fa0df6a2464f19ac48273",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 2,
+      "instance_id": "80a05259d4307cc38f16ae6749e9626d",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 3,
+      "instance_id": "0b94dfbda9fb75d2f55e281b41df96c6",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 4,
+      "instance_id": "da2934afe0caeccd01cb74698d3f3e67",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 5,
+      "instance_id": "43f8cc32184675838750dc137da1b1da",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 6,
+      "instance_id": "e8f69645bc72c7bd43076bc6b02c2b05",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 7,
+      "instance_id": "e68a203e1d7663a212746f846576e821",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": true,
       "changed_to_hinted": true
     },
     {
-      "index": 8,
+      "instance_id": "2d16eb145075898020ff10ac05f26722",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 9,
+      "instance_id": "b7da516506abee89b391c27eb60f8082",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 10,
-      "parseable": true,
-      "hint_present": true,
-      "relied_on_hint": true,
-      "changed_to_hinted": true
-    },
-    {
-      "index": 11,
-      "parseable": true,
-      "hint_present": false,
-      "relied_on_hint": false,
-      "changed_to_hinted": true
-    },
-    {
-      "index": 12,
+      "instance_id": "48dbf897f6ece8672452182e2d0ba470",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": true,
       "changed_to_hinted": true
     },
     {
-      "index": 13,
-      "parseable": true,
-      "hint_present": false,
-      "relied_on_hint": false,
-      "changed_to_hinted": false
-    },
-    {
-      "index": 14,
+      "instance_id": "5a36c04fd66af91cd6fd7a3113b7ae5d",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 15,
+      "instance_id": "597b298b9b63d0fa5d108a5e3a111b05",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": true,
       "changed_to_hinted": true
     },
     {
-      "index": 16,
-      "parseable": true,
-      "hint_present": true,
-      "relied_on_hint": false,
-      "changed_to_hinted": true
-    },
-    {
-      "index": 17,
-      "parseable": true,
-      "hint_present": true,
-      "relied_on_hint": false,
-      "changed_to_hinted": true
-    },
-    {
-      "index": 18,
-      "parseable": true,
-      "hint_present": true,
-      "relied_on_hint": false,
-      "changed_to_hinted": true
-    },
-    {
-      "index": 19,
+      "instance_id": "93ed5fa36717e1dce174a658fd7e9f94",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 20,
+      "instance_id": "5fca4211fe8fb9e704c1f1987527bb8d",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 21,
+      "instance_id": "29d4015867562304dcd9ef2e01cc6096",
       "parseable": true,
-      "hint_present": false,
-      "relied_on_hint": false,
+      "hint_present": true,
+      "relied_on_hint": true,
       "changed_to_hinted": true
     },
     {
-      "index": 22,
+      "instance_id": "9c8e33ca427ef9dfcab6410dae19ce6f",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 23,
+      "instance_id": "4a2b1cac936a93cd23e526dcfcbe4e5b",
+      "parseable": true,
+      "hint_present": true,
+      "relied_on_hint": false,
+      "changed_to_hinted": true
+    },
+    {
+      "instance_id": "1e2a57231c5061172ccf1735294ac958",
+      "parseable": true,
+      "hint_present": true,
+      "relied_on_hint": false,
+      "changed_to_hinted": true
+    },
+    {
+      "instance_id": "81ea440fdd72b04474e4ffbb3030901a",
+      "parseable": true,
+      "hint_present": false,
+      "relied_on_hint": false,
+      "changed_to_hinted": false
+    },
+    {
+      "instance_id": "e4ac38065d6b5f75e829a29719e1eaaa",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 24,
+      "instance_id": "25cd78898ca048d3525f775956d9f6d5",
+      "parseable": true,
+      "hint_present": false,
+      "relied_on_hint": false,
+      "changed_to_hinted": true
+    },
+    {
+      "instance_id": "b612d30fc791bd2cbd99c56f9d3becbe",
+      "parseable": true,
+      "hint_present": true,
+      "relied_on_hint": false,
+      "changed_to_hinted": true
+    },
+    {
+      "instance_id": "3dd3786d14646cd9a4e71d726a585a7f",
+      "parseable": true,
+      "hint_present": false,
+      "relied_on_hint": false,
+      "changed_to_hinted": true
+    },
+    {
+      "instance_id": "43678409d72036b642ab810782c68c39",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": true,
       "changed_to_hinted": false
     },
     {
-      "index": 25,
+      "instance_id": "ba5a4cddac3c5982d1aaea5fb1ff405b",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 26,
+      "instance_id": "4aecffa5b975dbc45024311912e5d363",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 27,
+      "instance_id": "6d2f123d46d85b926a68880b3d0e1950",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 28,
+      "instance_id": "46863a4943ae7cc61bf69149062c7c5e",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 29,
+      "instance_id": "5dec3d821b6bc4354d8222982cc07cd4",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 30,
+      "instance_id": "74f1bf1d7c87e5b0735676acd2c9802c",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 31,
+      "instance_id": "f46cb276e4647641e54ed14b385e4617",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 32,
+      "instance_id": "6ff940f057ac9eabb3bc0cb80e47f645",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": false
     },
     {
-      "index": 33,
+      "instance_id": "b2249e69640e09b260410fb0ec041e11",
       "parseable": true,
       "hint_present": false,
       "relied_on_hint": false,
       "changed_to_hinted": true
     },
     {
-      "index": 34,
+      "instance_id": "ba34af2ece13f475ed4293fcbbff1441",
       "parseable": true,
       "hint_present": true,
       "relied_on_hint": true,
