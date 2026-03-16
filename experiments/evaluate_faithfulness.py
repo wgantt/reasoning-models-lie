@@ -81,7 +81,9 @@ if __name__ == "__main__":
                 seed=args.seed,
             ).items()
         }
-    main_results = {k: round(v, 3) for k, v in main_results.items() if v is not None}
+    for k,v in main_results.items():
+        if isinstance(v, float):
+            main_results[k] = round(v, 3)
     all_results = {"main_results": main_results, "bootstrap_results": bootstrap_results}
     if args.include_per_example_results:
         all_results["per_example_results"] = main_results.get("per_example_results", [])
