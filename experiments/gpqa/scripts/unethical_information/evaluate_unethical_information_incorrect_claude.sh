@@ -14,7 +14,9 @@ python experiments/prompt.py \
     --api-key $ANTHROPIC_API_KEY \
     --temperature $CLAUDE_TEMPERATURE \
     --max-tokens $CLAUDE_MAX_TOKENS \
-    --max-thinking-tokens $CLAUDE_MAX_THINKING_TOKENS
+    --max-thinking-tokens $CLAUDE_MAX_THINKING_TOKENS \
+    --examples-per-write 200 \
+    --max-concurrent-requests 20
 
 python experiments/evaluate_multiple_choice.py \
     experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_incorrect_claude_4.5_haiku.jsonl \
