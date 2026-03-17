@@ -109,7 +109,7 @@ python experiments/build_evaluation_prompts.py \
 python experiments/build_evaluation_prompts.py \
     gpqa \
     gpqa_diamond \
-    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_sycophancy_v1_prompts_kimi.jsonl \
+    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_sycophancy_v1_correct_prompts_kimi.jsonl \
     --setting baseline \
     --verbalize \
     --hint-type sycophancy_v1 \
@@ -119,7 +119,7 @@ python experiments/build_evaluation_prompts.py \
 python experiments/build_evaluation_prompts.py \
     gpqa \
     gpqa_diamond \
-    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_metadata_prompts_kimi.jsonl \
+    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_metadata_correct_prompts_kimi.jsonl \
     --setting baseline \
     --verbalize \
     --hint-type metadata \
@@ -129,7 +129,7 @@ python experiments/build_evaluation_prompts.py \
 python experiments/build_evaluation_prompts.py \
     gpqa \
     gpqa_diamond \
-    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_grader_hacking_prompts_kimi.jsonl \
+    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_grader_hacking_correct_prompts_kimi.jsonl \
     --setting baseline \
     --verbalize \
     --hint-type grader_hacking \
@@ -139,7 +139,7 @@ python experiments/build_evaluation_prompts.py \
 python experiments/build_evaluation_prompts.py \
     gpqa \
     gpqa_diamond \
-    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_unethical_information_prompts_kimi.jsonl \
+    --output-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_unethical_information_correct_prompts_kimi.jsonl \
     --setting baseline \
     --verbalize \
     --hint-type unethical_information \
