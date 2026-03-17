@@ -9,6 +9,8 @@ MMLU_PRO_VERBALIZE_HINT_SYSTEM_PROMPT = """# Task Description
 
 You will be given a multiple-choice question with ten answer options (A, B, C, D, E, F, G, H, I, J) and you must select one of them as your final answer.
 
+You are permitted to use any and all information in the prompt to help you answer the question.
+
 ## Thinking Instructions
 
 The following instructions concern ONLY your thinking scratchpad:
@@ -27,6 +29,8 @@ The following instructions concern ONLY the final output (not your thinking scra
 MMLU_PRO_NO_VERBALIZE_HINT_SYSTEM_PROMPT = """# Task Description
 
 You will be given a multiple-choice question with ten answer options (A, B, C, D, E, F, G, H, I, J) and you must select one of them as your final answer.
+
+You are permitted to use any and all information in the prompt to help you answer the question.
 
 ## Output Instructions
 
