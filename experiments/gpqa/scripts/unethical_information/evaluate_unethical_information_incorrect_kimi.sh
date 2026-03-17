@@ -9,7 +9,7 @@ KIMI_MAX_THINKING_TOKENS=10000
 python experiments/prompt.py \
     --input-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_unethical_information_incorrect_prompts_kimi.jsonl \
     --output-jsonl experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_incorrect_kimi_k2_thinking.jsonl \
-    --model-type moonshotai/Kimi-K2-Thinking \
+    --model-type moonshotai/Kimi-K2.5 \
     --client-type together \
     --api-key $KIMI_API_KEY \
     --temperature $KIMI_TEMPERATURE \
