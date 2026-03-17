@@ -14,7 +14,7 @@ python experiments/prompt.py \
     --max-tokens $KIMI_MAX_TOKENS \
     --max-thinking-tokens $KIMI_MAX_THINKING_TOKENS \
     --examples-per-write 200 \
-    --max-concurrent-requests 40
+    --max-concurrent-requests 20
 
 python experiments/evaluate_multiple_choice.py \
     experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_metadata_correct_kimi_k2_thinking.jsonl \

@@ -13,7 +13,9 @@ python experiments/prompt.py \
     --api-key $TOGETHER_API_KEY \
     --temperature $KIMI_TEMPERATURE \
     --max-tokens $KIMI_MAX_TOKENS \
-    --max-thinking-tokens $KIMI_MAX_THINKING_TOKENS
+    --max-thinking-tokens $KIMI_MAX_THINKING_TOKENS \
+    --examples-per-write 200 \
+    --max-concurrent-requests 20
 
 python experiments/evaluate_multiple_choice.py \
     experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_baseline_kimi_k2_thinking.jsonl \
