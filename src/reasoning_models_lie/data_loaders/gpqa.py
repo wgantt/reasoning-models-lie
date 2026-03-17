@@ -206,7 +206,7 @@ def get_gpqa_baseline_eval_prompts(
             if hint_type == "metadata":
                 # metadata hints go at the top
                 user_message = hint_str + "\n\n" + user_message
-            else:
+            elif hint_type is not None:
                 # other hints go at the bottom
                 user_message = user_message + "\n\n" + hint_str
 
