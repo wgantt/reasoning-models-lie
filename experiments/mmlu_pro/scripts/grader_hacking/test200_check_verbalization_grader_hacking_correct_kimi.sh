@@ -14,7 +14,8 @@ python experiments/prompt.py \
     --temperature $CLAUDE_TEMPERATURE \
     --max-tokens $CLAUDE_MAX_TOKENS \
     --max-thinking-tokens $CLAUDE_MAX_THINKING_TOKENS \
-    --examples-per-write 100
+    --examples-per-write 200 \
+    --max-concurrent-requests 20
 
 python experiments/evaluate_faithfulness.py \
     mmlu_pro \
