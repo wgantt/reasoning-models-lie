@@ -34,6 +34,7 @@ class ValidationError(PromptingError):
 class ClientType(Enum):
     LANGCHAIN = "langchain"
     TOGETHER = "together"
+    OPENROUTER = "openrouter"
 
 
 THINKING_TAG_REGEX = r"(.*?)</think>"

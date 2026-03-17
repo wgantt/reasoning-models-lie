@@ -22,6 +22,10 @@ from reasoning_models_lie.prompting.prompting_together import (
     ReasoningModelClientTogether,
     TogetherModelType,
 )
+from reasoning_models_lie.prompting.prompting_openrouter import (
+    ReasoningModelClientOpenRouter,
+    OpenRouterModelType,
+)
 from reasoning_models_lie.prompting.prompting_utils import ClientType
 
 # Setup logging
@@ -34,7 +38,7 @@ LOGGER = logging.getLogger(__name__)
 async def process_prompts_async(
     input_jsonl: str,
     output_jsonl: str,
-    model_type: LangChainModelType | TogetherModelType,
+    model_type: LangChainModelType | TogetherModelType | OpenRouterModelType,
     client_type: ClientType = ClientType.LANGCHAIN,
     api_key: Optional[str] = None,
     temperature: float = 0.7,
@@ -126,6 +130,19 @@ async def process_prompts_async(
                 temperature=temperature,
                 max_tokens=max_tokens,
                 max_thinking_tokens=max_thinking_tokens,
+                max_retries=max_retries,
+                max_concurrent_requests=max_concurrent_requests,
+                model_kwargs=model_kwargs,
+            )
+        elif client_type == ClientType.OPENROUTER:
+            assert isinstance(
+                model_type, OpenRouterModelType
+            ), "Model type must be OpenRouterModelType for OPENROUTER client"
+            client = ReasoningModelClientOpenRouter(
+                model_type=model_type,
+                api_key=api_key,
+                temperature=temperature,
+                max_tokens=max_tokens,
                 max_retries=max_retries,
                 max_concurrent_requests=max_concurrent_requests,
                 model_kwargs=model_kwargs,
@@ -260,6 +277,14 @@ def main():
             "moonshotai/Kimi-K2.5",
             "openai/gpt-oss-120b",
             "Qwen/Qwen3-Next-80B-A3B-Thinking",
+            # OpenRouter models
+            "openrouter/deepseek/deepseek-r1",
+            "openrouter/deepseek/deepseek-r1-distill-qwen-32b",
+            "openrouter/qwen/qwq-32b",
+            "openrouter/moonshotai/kimi-k2.5",
+            "openrouter/google/gemini-2.5-pro-preview",
+            "openrouter/openai/o3",
+            "openrouter/openai/o4-mini",
         ],
         help="Model type to use for prompting",
     )
@@ -267,8 +292,8 @@ def main():
         "--client-type",
         type=str,
         default="langchain",
-        choices=["langchain", "together"],
-        help="Client type to use (langchain or together). Default: langchain",
+        choices=["langchain", "together", "openrouter"],
+        help="Client type to use (langchain, together, or openrouter). Default: langchain",
     )
     # Optional ReasoningModelClient arguments
     parser.add_argument(
@@ -361,6 +386,12 @@ def main():
         "moonshotai/Kimi-K2.5": TogetherModelType.KIMI_K2_5,
         "openai/gpt-oss-120b": TogetherModelType.GPT_OSS,
         "Qwen/Qwen3-Next-80B-A3B-Thinking": TogetherModelType.QWEN3_NEXT,
+        # OpenRouter models
+        "openrouter/deepseek/deepseek-r1": OpenRouterModelType.DEEPSEEK_R1,
+        "openrouter/deepseek/deepseek-r1-distill-qwen-32b": OpenRouterModelType.DEEPSEEK_R1_DISTILL_QWEN_32B,
+        "openrouter/qwen/qwq-32b": OpenRouterModelType.QWEN_QWQ_32B,
+        "openrouter/moonshotai/kimi-k2.5": OpenRouterModelType.KIMI_K2_5,
+        "openrouter/google/gemini-2.5-pro-preview": OpenRouterModelType.GEMINI_2_5_PRO,
     }
     model_type = model_type_map[args.model_type]
     if args.kwargs:
