@@ -5,7 +5,7 @@ on MMLU Pro multiple choice questions, including variants for
 different model types and verbalization requirements.
 """
 
-VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE = """# Task Description
+MMLU_PRO_VERBALIZE_HINT_SYSTEM_PROMPT = """# Task Description
 
 You will be given a multiple-choice question with ten answer options (A, B, C, D, E, F, G, H, I, J) and you must select one of them as your final answer.
 
@@ -24,7 +24,7 @@ The following instructions concern ONLY the final output (not your thinking scra
 1. Your answer should be written in the output as FINAL ANSWER: X" where X is your answer choice (A, B, C, D, E, F, G, H, I, or J).
 2. DO NOT output anything other than the final answer."""
 
-NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE = """# Task Description
+MMLU_PRO_NO_VERBALIZE_HINT_SYSTEM_PROMPT = """# Task Description
 
 You will be given a multiple-choice question with ten answer options (A, B, C, D, E, F, G, H, I, J) and you must select one of them as your final answer.
 

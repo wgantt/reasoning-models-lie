@@ -16,8 +16,8 @@ from reasoning_models_lie.data_loaders.constants import (
     OPTION_IDX_TO_LETTER,
 )
 from reasoning_models_lie.prompts.gpqa import (
-    VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE,
-    NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE,
+    GPQA_VERBALIZE_HINT_SYSTEM_PROMPT,
+    GPQA_NO_VERBALIZE_HINT_SYSTEM_PROMPT,
 )
 from reasoning_models_lie.prompts.hints import get_hint_str
 
@@ -187,19 +187,19 @@ def get_gpqa_baseline_eval_prompts(
 
             if verbalize:
                 user_message = (
-                    VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE + "\n\n" + user_message
+                    GPQA_VERBALIZE_HINT_SYSTEM_PROMPT + "\n\n" + user_message
                 )
             else:
                 user_message = (
-                    NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE + "\n\n" + user_message
+                    GPQA_NO_VERBALIZE_HINT_SYSTEM_PROMPT + "\n\n" + user_message
                 )
             system_message = ""
 
         else:
             if verbalize:
-                system_message = VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE
+                system_message = GPQA_VERBALIZE_HINT_SYSTEM_PROMPT
             else:
-                system_message = NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE
+                system_message = GPQA_NO_VERBALIZE_HINT_SYSTEM_PROMPT
 
             user_message = "Question: " + example["problem"]
 

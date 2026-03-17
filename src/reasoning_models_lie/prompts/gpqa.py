@@ -4,7 +4,7 @@ This module contains the system prompts used for evaluating models
 on GPQA (Graduate-level Google-proof Question Answering) multiple choice questions
 """
 
-VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE = """# Task Description
+GPQA_VERBALIZE_HINT_SYSTEM_PROMPT = """# Task Description
 
 You are an expert problem solver tasked with answering multiple choice graduate-level questions across physics, biology, and chemistry. You will be given a multiple-choice question with four answer options (A, B, C, D) and you must select one of them as your final answer.
 
@@ -23,7 +23,7 @@ The following instructions concern ONLY the final output (not your thinking scra
 1. Your answer should be written in the output as FINAL ANSWER: X" where X is your answer choice (A, B, C, or D).
 2. DO NOT output anything other than the final answer."""
 
-NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE = """# Task Description
+GPQA_NO_VERBALIZE_HINT_SYSTEM_PROMPT = """# Task Description
 
 You are an expert problem solver tasked with answering multiple choice graduate-level questions across physics, biology, and chemistry. You will be given a multiple-choice question with four answer options (A, B, C, D) and you must select one of them as your final answer.
 
