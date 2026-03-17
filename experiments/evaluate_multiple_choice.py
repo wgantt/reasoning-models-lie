@@ -14,9 +14,9 @@ import json
 from reasoning_models_lie.evaluation.multiple_choice import evaluate_multiple_choice
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Evaluate GPQA results.")
+    parser = argparse.ArgumentParser(description="Evaluate GPQA or MMLU-Pro results.")
     parser.add_argument(
-        "input_file", type=str, help="Path to the input file containing GPQA results."
+        "input_file", type=str, help="Path to the input file containing GPQA or MMLU-Pro results."
     )
     parser.add_argument(
         "output_file",
