@@ -21,8 +21,8 @@ from reasoning_models_lie.data_loaders.constants import (
     DEFAULT_RANDOM_SEED,
 )
 from reasoning_models_lie.prompts.mmlu_pro import (
-    VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE,
-    NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE,
+    MMLU_PRO_VERBALIZE_HINT_SYSTEM_PROMPT,
+    MMLU_PRO_NO_VERBALIZE_HINT_SYSTEM_PROMPT,
 )
 from reasoning_models_lie.prompts.hints import get_hint_str
 
@@ -216,11 +216,11 @@ def get_mmlu_pro_baseline_eval_prompts(
 
             if verbalize:
                 user_message = (
-                    VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE + "\n\n" + user_message
+                    MMLU_PRO_VERBALIZE_HINT_SYSTEM_PROMPT + "\n\n" + user_message
                 )
             else:
                 user_message = (
-                    NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE + "\n\n" + user_message
+                    MMLU_PRO_NO_VERBALIZE_HINT_SYSTEM_PROMPT + "\n\n" + user_message
                 )
 
             system_message = ""
@@ -228,9 +228,9 @@ def get_mmlu_pro_baseline_eval_prompts(
         else:
             user_message = example["problem"]
             if verbalize:
-                system_message = VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE
+                system_message = MMLU_PRO_VERBALIZE_HINT_SYSTEM_PROMPT
             else:
-                system_message = NO_VERBALIZE_HINT_SYSTEM_PROMPT_CLAUDE
+                system_message = MMLU_PRO_NO_VERBALIZE_HINT_SYSTEM_PROMPT
 
             if hint_type == "metadata":
                 # metadata hints go at the top
