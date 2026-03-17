@@ -24,6 +24,7 @@ LOGGER = logging.getLogger(__name__)
 class TogetherModelType(Enum):
     """Supported reasoning model types."""
 
+    KIMI_K2_5 = "moonshotai/Kimi-K2.5"
     KIMI_K2_THINKING = "moonshotai/Kimi-K2-Thinking"
     GPT_OSS = "openai/gpt-oss-120b"
     DEEPSEEK_R1 = "deepseek-ai/DeepSeek-R1"

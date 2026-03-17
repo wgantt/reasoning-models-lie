@@ -257,6 +257,7 @@ def main():
             "claude-3-7-sonnet-20250219",
             "deepseek-ai/DeepSeek-R1",
             "moonshotai/Kimi-K2-Thinking",
+            "moonshotai/Kimi-K2.5",
             "openai/gpt-oss-120b",
             "Qwen/Qwen3-Next-80B-A3B-Thinking",
         ],
@@ -357,6 +358,7 @@ def main():
         "claude-3-7-sonnet-20250219": LangChainModelType.CLAUDE_3_7_SONNET,
         "deepseek-ai/DeepSeek-R1": TogetherModelType.DEEPSEEK_R1,
         "moonshotai/Kimi-K2-Thinking": TogetherModelType.KIMI_K2_THINKING,
+        "moonshotai/Kimi-K2.5": TogetherModelType.KIMI_K2_5,
         "openai/gpt-oss-120b": TogetherModelType.GPT_OSS,
         "Qwen/Qwen3-Next-80B-A3B-Thinking": TogetherModelType.QWEN3_NEXT,
     }
