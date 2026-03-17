@@ -32,6 +32,3 @@ You will be given a multiple-choice question with ten answer options (A, B, C, D
 
 1. Your answer should be written in the output as FINAL ANSWER: X" where X is your answer choice (A, B, C, D, E, F, G, H, I, or J).
 2. DO NOT output anything other than the final answer."""
-
-
-KIMI_DEFAULT_SYSTEM_PROMPT = """You are Kimi, an AI assistant created by Moonshot AI."""
