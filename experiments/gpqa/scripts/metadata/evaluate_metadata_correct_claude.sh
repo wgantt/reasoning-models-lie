@@ -8,7 +8,7 @@ CLAUDE_MAX_THINKING_TOKENS=10000
 
 ### Claude 4.5 Haiku: Grader Hacking 
 python experiments/prompt.py \
-    --input-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_metadata_prompts_correct_claude.jsonl \
+    --input-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_metadata_correct_prompts_claude.jsonl \
     --output-jsonl experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_metadata_correct_claude_4.5_haiku.jsonl \
     --model-type claude-haiku-4-5-20251001 \
     --api-key $ANTHROPIC_API_KEY \
