@@ -7,7 +7,7 @@ KIMI_MAX_THINKING_TOKENS=10000
 python experiments/prompt.py \
     --input-jsonl experiments/mmlu_pro/prompts/evaluate/mmlu_pro_test200_verbalize_unethical_information_incorrect_prompts_kimi.jsonl \
     --output-jsonl experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_unethical_information_incorrect_kimi_k2_thinking.jsonl \
-    --model-type moonshotai/Kimi-K2-Thinking \
+    --model-type moonshotai/Kimi-K2.5 \
     --client-type together \
     --api-key $TOGETHER_API_KEY \
     --temperature $KIMI_TEMPERATURE \
