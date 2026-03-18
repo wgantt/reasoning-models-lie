@@ -5,7 +5,7 @@ CHANGED_RESPONSES=$PROJECT_ROOT/experiments/mmlu_pro/results/changed_responses
 GET_CHANGED_RESPONSES=$PROJECT_ROOT/experiments/get_change_to_hint_examples.py
 
 CLAUDE_TEST200_BASELINE=$ALL_RESPONSES/mmlu_pro_test200_verbalize_baseline_claude_4.5_haiku.jsonl
-KIMI_TEST200_BASELINE=$ALL_RESPONSES/mmlu_pro_test200_verbalize_baseline_kimi_k2_thinking.jsonl
+KIMI_TEST200_BASELINE=$ALL_RESPONSES/mmlu_pro_test200_verbalize_baseline_kimi_k2_5.jsonl
 QWEN_TEST200_BASELINE=$ALL_RESPONSES/mmlu_pro_test200_verbalize_baseline_qwen3_next.jsonl
 
 # Claude 4.5 Haiku
@@ -21,14 +21,14 @@ for file in $ALL_RESPONSES/mmlu_pro_test200*haiku.jsonl; do
     python $GET_CHANGED_RESPONSES $CLAUDE_TEST200_BASELINE $file $CHANGED_RESPONSES/${filename}_changed.jsonl $CHANGED_RESPONSES/${filename}_stats.json
 done
 
-# Kimi K2 Thinking
-for file in $ALL_RESPONSES/mmlu_pro_test200*kimi_k2_thinking.jsonl; do
+# Kimi K2.5
+for file in $ALL_RESPONSES/mmlu_pro_test200*kimi_k2_5.jsonl; do
     # get file name
     filename=$(basename -- "$file")
     # remove extension
     filename="${filename%.*}"
     # ignore baseline file
-    if [[ "$filename" == *"verbalize_baseline_kimi_k2_thinking"* ]]; then
+    if [[ "$filename" == *"verbalize_baseline_kimi_k2_5"* ]]; then
         continue
     fi
     python $GET_CHANGED_RESPONSES $KIMI_TEST200_BASELINE $file $CHANGED_RESPONSES/${filename}_changed.jsonl $CHANGED_RESPONSES/${filename}_stats.json
