@@ -1,5 +1,5 @@
 #!/bin/bash
-KIMI_API_KEY=$TOGETHER_API_KEY
+KIMI_API_KEY=$OPENROUTER_API_KEY
 
 KIMI_TEMPERATURE=0.0
 KIMI_MAX_TOKENS=12000
@@ -7,11 +7,11 @@ KIMI_MAX_THINKING_TOKENS=10000
 
 ### Kimi-K2-Thinking: Unethical Information 
 python experiments/prompt.py \
-    --input-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_unethical_information_prompts_kimi.jsonl \
-    --output-jsonl experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_kimi_k2_thinking.jsonl \
-    --model-type moonshotai/Kimi-K2.5 \
-    --client-type together \
-    --api-key $KIMI_API_KEY \
+    --input-jsonl experiments/gpqa/prompts/evaluate/gpqa_diamond_verbalize_unethical_information_correct_prompts_kimi.jsonl \
+    --output-jsonl experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_correct_kimi_k2_5.jsonl \
+    --model-type openrouter/moonshotai/kimi-k2.5 \
+    --client-type openrouter \
+    --api-key $OPENROUTER_API_KEY \
     --temperature $KIMI_TEMPERATURE \
     --max-tokens $KIMI_MAX_TOKENS \
     --max-thinking-tokens $KIMI_MAX_THINKING_TOKENS \
@@ -19,5 +19,5 @@ python experiments/prompt.py \
     --max-concurrent-requests 20
 
 python experiments/evaluate_multiple_choice.py \
-    experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_correct_kimi_k2_thinking.jsonl \
-    experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_correct_kimi_k2_thinking_results.json
+    experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_correct_kimi_k2_5.jsonl \
+    experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_unethical_information_correct_kimi_k2_5_results.json
