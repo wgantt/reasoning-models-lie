@@ -11,7 +11,7 @@ python experiments/prompt.py \
     --output-jsonl experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_baseline_qwen3_next.jsonl \
     --model-type openrouter/qwen/qwen3-next-80b-a3b-thinking \
     --client-type openrouter \
-    --api-key $TOGETHER_API_KEY \
+    --api-key $QWEN_API_KEY \
     --temperature $QWEN_TEMPERATURE \
     --max-tokens $QWEN_MAX_TOKENS \
     --max-thinking-tokens $QWEN_MAX_THINKING_TOKENS \
