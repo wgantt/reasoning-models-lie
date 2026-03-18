@@ -283,8 +283,7 @@ def main():
             "openrouter/qwen/qwq-32b",
             "openrouter/moonshotai/kimi-k2.5",
             "openrouter/google/gemini-2.5-pro-preview",
-            "openrouter/openai/o3",
-            "openrouter/openai/o4-mini",
+            "openrouter/openai/gpt-oss-120b",
         ],
         help="Model type to use for prompting",
     )
@@ -392,6 +391,7 @@ def main():
         "openrouter/qwen/qwq-32b": OpenRouterModelType.QWEN_QWQ_32B,
         "openrouter/moonshotai/kimi-k2.5": OpenRouterModelType.KIMI_K2_5,
         "openrouter/google/gemini-2.5-pro-preview": OpenRouterModelType.GEMINI_2_5_PRO,
+        "openrouter/openai/gpt-oss-120b": OpenRouterModelType.GPT_OSS_120B,
     }
     model_type = model_type_map[args.model_type]
     if args.kwargs:
