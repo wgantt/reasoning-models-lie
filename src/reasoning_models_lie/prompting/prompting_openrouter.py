@@ -31,6 +31,7 @@ class OpenRouterModelType(Enum):
     QWEN_QWQ_32B = "qwen/qwq-32b"
     KIMI_K2_5 = "moonshotai/kimi-k2.5"
     GEMINI_2_5_PRO = "google/gemini-2.5-pro-preview"
+    GPT_OSS_120B = "openai/gpt-oss-120b"
 
 
 # Models that embed reasoning in <think> tags within content rather than
