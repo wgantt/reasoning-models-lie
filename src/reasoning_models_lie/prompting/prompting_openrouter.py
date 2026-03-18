@@ -29,6 +29,8 @@ class OpenRouterModelType(Enum):
     DEEPSEEK_R1 = "deepseek/deepseek-r1"
     DEEPSEEK_R1_DISTILL_QWEN_32B = "deepseek/deepseek-r1-distill-qwen-32b"
     QWEN_QWQ_32B = "qwen/qwq-32b"
+    QWEN_3_NEXT_80B_A3B_THINKING = "qwen/qwen3-next-80b-a3b-thinking"
+    QWEN_3_5_397B_A17B = "qwen/qwen3.5-397b-a17b"
     KIMI_K2_5 = "moonshotai/kimi-k2.5"
     GEMINI_2_5_PRO = "google/gemini-2.5-pro-preview"
     GPT_OSS_120B = "openai/gpt-oss-120b"

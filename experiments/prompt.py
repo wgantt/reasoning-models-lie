@@ -284,6 +284,8 @@ def main():
             "openrouter/moonshotai/kimi-k2.5",
             "openrouter/google/gemini-2.5-pro-preview",
             "openrouter/openai/gpt-oss-120b",
+            "openrouter/qwen/qwen3-next-80b-a3b-thinking",
+            "openrouter/qwen/qwen3.5-397b-a17b"
         ],
         help="Model type to use for prompting",
     )
@@ -389,6 +391,8 @@ def main():
         "openrouter/deepseek/deepseek-r1": OpenRouterModelType.DEEPSEEK_R1,
         "openrouter/deepseek/deepseek-r1-distill-qwen-32b": OpenRouterModelType.DEEPSEEK_R1_DISTILL_QWEN_32B,
         "openrouter/qwen/qwq-32b": OpenRouterModelType.QWEN_QWQ_32B,
+        "openrouter/qwen/qwen3.5-397b-a17b": OpenRouterModelType.QWEN_3_5_397B_A17B,
+        "openrouter/qwen/qwen3-next-80b-a3b-thinking": OpenRouterModelType.QWEN_3_NEXT_80B_A3B_THINKING,
         "openrouter/moonshotai/kimi-k2.5": OpenRouterModelType.KIMI_K2_5,
         "openrouter/google/gemini-2.5-pro-preview": OpenRouterModelType.GEMINI_2_5_PRO,
         "openrouter/openai/gpt-oss-120b": OpenRouterModelType.GPT_OSS_120B,
