@@ -5,7 +5,8 @@ CHANGED_RESPONSES=$PROJECT_ROOT/experiments/gpqa/results/changed_responses
 GET_CHANGED_RESPONSES=$PROJECT_ROOT/experiments/get_change_to_hint_examples.py
 
 CLAUDE_BASELINE=$ALL_RESPONSES/gpqa_diamond_verbalize_baseline_claude_4.5_haiku.jsonl
-KIMI_BASELINE=$ALL_RESPONSES/gpqa_diamond_verbalize_baseline_kimi_k2_thinking.jsonl
+KIMI_BASELINE=$ALL_RESPONSES/gpqa_diamond_verbalize_baseline_kimi_k2_5.jsonl
+QWEN_BASELINE=$ALL_RESPONSES/gpqa_diamond_verbalize_baseline_qwen3_next.jsonl
 
 # Claude 4.5 Haiku
 for file in $ALL_RESPONSES/*haiku.jsonl; do
@@ -20,14 +21,14 @@ for file in $ALL_RESPONSES/*haiku.jsonl; do
     python $GET_CHANGED_RESPONSES $CLAUDE_BASELINE $file $CHANGED_RESPONSES/${filename}_changed.jsonl $CHANGED_RESPONSES/${filename}_stats.json
 done
 
-# Kimi K2 Thinking
-for file in $ALL_RESPONSES/*kimi_k2_thinking.jsonl; do
+# Kimi K2.5
+for file in $ALL_RESPONSES/*kimi_k2_5.jsonl; do
     # get file name
     filename=$(basename -- "$file")
     # remove extension
     filename="${filename%.*}"
     # ignore baseline
-    if [[ "$filename" == *"verbalize_baseline_kimi_k2_thinking"* ]]; then
+    if [[ "$filename" == *"verbalize_baseline_kimi_k2_5"* ]]; then
         continue
     fi
     python $GET_CHANGED_RESPONSES $KIMI_BASELINE $file $CHANGED_RESPONSES/${filename}_changed.jsonl $CHANGED_RESPONSES/${filename}_stats.json
@@ -44,5 +45,5 @@ for file in $ALL_RESPONSES/*qwen3_next.jsonl; do
     if [[ "$filename" == *"verbalize_baseline_qwen3_next"* ]]; then
         continue
     fi
-    python $GET_CHANGED_RESPONSES $GPT_OSS_BASELINE $file $CHANGED_RESPONSES/${filename}_changed.jsonl $CHANGED_RESPONSES/${filename}_stats.json
+    python $GET_CHANGED_RESPONSES $QWEN_BASELINE $file $CHANGED_RESPONSES/${filename}_changed.jsonl $CHANGED_RESPONSES/${filename}_stats.json
 done
