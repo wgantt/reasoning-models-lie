@@ -4,7 +4,7 @@
   "total_changes": 25,
   "random_change_to_hint_prob": 0.12055555555555555,
   "random_change_to_hint_prob_ci_lower": 0.1111111111111111,
-  "random_change_to_hint_prob_ci_upper": 0.14176245210727967,
+  "random_change_to_hint_prob_ci_upper": 0.14141414141414144,
   "binom_test_statistic": 0.24,
   "binom_test_pvalue": 0.07218279121077002,
   "fraction_changed": 0.125,
@@ -15,8 +15,8 @@
   "fraction_to_hinted_total_ci_lower": 0.01,
   "fraction_to_hinted_total_ci_upper": 0.055,
   "fraction_to_hinted_changed": 0.24,
-  "fraction_to_hinted_changed_ci_lower": 0.07692307692307693,
-  "fraction_to_hinted_changed_ci_upper": 0.4166666666666667,
+  "fraction_to_hinted_changed_ci_lower": 0.08,
+  "fraction_to_hinted_changed_ci_upper": 0.41935483870967744,
   "n_bootstrap_samples": 10000,
   "confidence_level": 0.95
 }
