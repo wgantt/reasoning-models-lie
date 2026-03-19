@@ -4,7 +4,7 @@
   "total_changes": 16,
   "random_change_to_hint_prob": 0.1423611111111111,
   "random_change_to_hint_prob_ci_lower": 0.11111111111111112,
-  "random_change_to_hint_prob_ci_upper": 0.18403234649122802,
+  "random_change_to_hint_prob_ci_upper": 0.18376068376068375,
   "binom_test_statistic": 0.8125,
   "binom_test_pvalue": 3.6116195791560985e-09,
   "fraction_changed": 0.08,
