@@ -33,6 +33,7 @@ class LangChainModelType(Enum):
     GPT_5 = "gpt-5-2025-08-07"
     GPT_5_2 = "gpt-5.2-2025-12-11"
     CLAUDE_4_5_SONNET = "claude-sonnet-4-5-20250929"
+    CLAUDE_4_6_SONNET = "claude-sonnet-4-6"
     CLAUDE_4_5_HAIKU = "claude-haiku-4-5-20251001"
     CLAUDE_3_7_SONNET = "claude-3-7-sonnet-20250219"
     DEEPSEEK_R1 = "deepseek-ai/DeepSeek-R1"
@@ -138,6 +139,7 @@ class ReasoningModelClientLangChain:
             if self.model_type in [
                 LangChainModelType.CLAUDE_3_7_SONNET,
                 LangChainModelType.CLAUDE_4_5_SONNET,
+                LangChainModelType.CLAUDE_4_6_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
             ]:
                 api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
@@ -446,6 +448,7 @@ class ReasoningModelClientLangChain:
                 LangChainModelType.GPT_5_2,
                 LangChainModelType.CLAUDE_3_7_SONNET,
                 LangChainModelType.CLAUDE_4_5_SONNET,
+                LangChainModelType.CLAUDE_4_6_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
             }:
                 if not response.content or not isinstance(response.content, list):
@@ -507,6 +510,7 @@ class ReasoningModelClientLangChain:
                 LangChainModelType.GPT_5_2,
                 LangChainModelType.CLAUDE_3_7_SONNET,
                 LangChainModelType.CLAUDE_4_5_SONNET,
+                LangChainModelType.CLAUDE_4_6_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
             }:
                 if (

@@ -270,6 +270,7 @@ def main():
             "gpt-5-2025-08-07",
             "gpt-5.2-2025-12-11",
             "claude-sonnet-4-5-20250929",
+            "claude-sonnet-4-6",
             "claude-haiku-4-5-20251001",
             "claude-3-7-sonnet-20250219",
             "deepseek-ai/DeepSeek-R1",
@@ -285,7 +286,7 @@ def main():
             "openrouter/google/gemini-2.5-pro-preview",
             "openrouter/openai/gpt-oss-120b",
             "openrouter/qwen/qwen3-next-80b-a3b-thinking",
-            "openrouter/qwen/qwen3.5-397b-a17b"
+            "openrouter/qwen/qwen3.5-397b-a17b",
         ],
         help="Model type to use for prompting",
     )
@@ -380,6 +381,7 @@ def main():
         "gpt-5-2025-08-07": LangChainModelType.GPT_5,
         "gpt-5.2-2025-12-11": LangChainModelType.GPT_5_2,
         "claude-sonnet-4-5-20250929": LangChainModelType.CLAUDE_4_5_SONNET,
+        "claude-sonnet-4-6": LangChainModelType.CLAUDE_4_6_SONNET,
         "claude-haiku-4-5-20251001": LangChainModelType.CLAUDE_4_5_HAIKU,
         "claude-3-7-sonnet-20250219": LangChainModelType.CLAUDE_3_7_SONNET,
         "deepseek-ai/DeepSeek-R1": TogetherModelType.DEEPSEEK_R1,
