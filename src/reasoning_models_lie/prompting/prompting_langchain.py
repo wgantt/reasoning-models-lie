@@ -32,6 +32,7 @@ class LangChainModelType(Enum):
     GPT_5_MINI = "gpt-5-mini-2025-08-07"
     GPT_5 = "gpt-5-2025-08-07"
     GPT_5_2 = "gpt-5.2-2025-12-11"
+    GPT_5_4 = "gpt-5.4-2026-03-05"
     CLAUDE_4_5_SONNET = "claude-sonnet-4-5-20250929"
     CLAUDE_4_6_SONNET = "claude-sonnet-4-6"
     CLAUDE_4_5_HAIKU = "claude-haiku-4-5-20251001"
@@ -58,7 +59,7 @@ class ReasoningModelClientLangChain:
         max_tokens: int = 4096,
         max_thinking_tokens: int = 2048,
         reasoning_effort: Optional[str] = "medium",
-        reasoning_summary: str = "auto",
+        reasoning_summary: str = "detailed",
         max_retries: int = 3,
         max_concurrent_requests: int = 10,
         model_kwargs: Dict[str, Any] = {},
@@ -169,6 +170,7 @@ class ReasoningModelClientLangChain:
                 LangChainModelType.GPT_5_MINI,
                 LangChainModelType.GPT_5,
                 LangChainModelType.GPT_5_2,
+                LangChainModelType.GPT_5_4,
             ]:
                 api_key = api_key or os.getenv("OPENAI_API_KEY")
                 if not api_key:
@@ -446,11 +448,34 @@ class ReasoningModelClientLangChain:
                 LangChainModelType.GPT_5_MINI,
                 LangChainModelType.GPT_5,
                 LangChainModelType.GPT_5_2,
+                LangChainModelType.GPT_5_4,
+            }:
+                if (
+                    self.max_thinking_tokens == 0
+                    or self.reasoning_effort is None
+                    or self.reasoning_summary == "none"
+                ):
+                    return None
+                elif (
+                    "reasoning" not in response.additional_kwargs
+                    or "summary" not in response.additional_kwargs["reasoning"]
+                    or not isinstance(
+                        response.additional_kwargs["reasoning"]["summary"], list
+                    )
+                    or len(response.additional_kwargs["reasoning"]["summary"]) == 0
+                    or "text"
+                    not in response.additional_kwargs["reasoning"]["summary"][0]
+                ):
+                    LOGGER.warning("No reasoning trace found")
+                    return None
+                return response.additional_kwargs["reasoning"]["summary"][0]["text"]
+            elif self.model_type in {
                 LangChainModelType.CLAUDE_3_7_SONNET,
                 LangChainModelType.CLAUDE_4_5_SONNET,
                 LangChainModelType.CLAUDE_4_6_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
             }:
+                LOGGER.warning(response.content)
                 if not response.content or not isinstance(response.content, list):
                     LOGGER.warning("Response content is not in expected list format")
                     return None
@@ -508,15 +533,23 @@ class ReasoningModelClientLangChain:
                 LangChainModelType.GPT_5_MINI,
                 LangChainModelType.GPT_5,
                 LangChainModelType.GPT_5_2,
+                LangChainModelType.GPT_5_4,
+            }:
+                if self.reasoning_effort is None or self.max_thinking_tokens == 0:
+                    # When thinking is disabled, response is in content
+                    if not isinstance(response.content, str):
+                        raise ResponseParsingError("Response content is not a string")
+                    return response.content
+                else:
+                    return response.content[0]["text"]
+
+            elif self.model_type in {
                 LangChainModelType.CLAUDE_3_7_SONNET,
                 LangChainModelType.CLAUDE_4_5_SONNET,
                 LangChainModelType.CLAUDE_4_6_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
             }:
-                if (
-                    self.model_type.value.startswith("gpt")
-                    and self.reasoning_effort is None
-                ) or (self.max_thinking_tokens == 0):
+                if self.max_thinking_tokens == 0:
                     # When thinking is disabled, response is a string
                     if not isinstance(response.content, str):
                         raise ResponseParsingError("Response content is not a string")
