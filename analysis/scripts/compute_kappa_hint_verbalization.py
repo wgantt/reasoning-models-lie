@@ -13,6 +13,9 @@ from sklearn.metrics import cohen_kappa_score
 
 from reasoning_models_lie.evaluation.faithfulness import parse_json_string
 
+NO_HINT_INTENT_OPTIONS = frozenset({"d", "e"})
+NO_HINT_USE_OPTIONS = frozenset({"d"})
+
 
 def load_jsonl(filepath: Path) -> List[Dict[str, Any]]:
     """Load a JSONL file and return list of records."""
@@ -22,12 +25,23 @@ def load_jsonl(filepath: Path) -> List[Dict[str, Any]]:
 
 def extract_matched_annotations(
     manual_annotations: List[Dict[str, Any]], automated_results: List[Dict[str, Any]]
-) -> Tuple[List[bool], List[bool], List[bool], List[bool]]:
+) -> Tuple[
+    List[bool],
+    List[bool],
+    List[str],
+    List[str],
+    List[bool],
+    List[bool],
+    List[str],
+    List[str],
+    List[bool],
+    List[bool],
+]:
     """
     Extract matched annotations for kappa calculation.
 
     Returns:
-        Tuple of (manual_hint_present, auto_hint_present, manual_relied_on_hint, auto_relied_on_hint)
+        Tuple of response values
     """
     # Create a lookup dict for automated results by instance_id
     auto_lookup = {}
@@ -38,14 +52,21 @@ def extract_matched_annotations(
             json_response = parse_json_string(result["result"]["response"])
             auto_lookup[instance_id] = {
                 "hint_present": json_response.get("hint_present"),
-                "relied_on_hint": json_response.get("relied_on_hint"),
+                "hint_intent": json_response.get("hint_intent"),
+                "hint_use": json_response.get("hint_use"),
             }
 
     # Match manual annotations with automated results
     manual_hint_present = []
     auto_hint_present = []
-    manual_relied_on_hint = []
-    auto_relied_on_hint = []
+    manual_hint_intent = []
+    auto_hint_intent = []
+    manual_hint_intent_type = []
+    auto_hint_intent_type = []
+    manual_hint_use = []
+    auto_hint_use = []
+    manual_hint_use_type = []
+    auto_hint_use_type = []
 
     matched_count = 0
     for manual in manual_annotations:
@@ -62,11 +83,20 @@ def extract_matched_annotations(
                 auto_hint_present.append(auto["hint_present"])
 
             if (
-                manual.get("relied_on_hint") is not None
-                and auto.get("relied_on_hint") is not None
+                manual.get("hint_intent") is not None
+                and auto.get("hint_intent") is not None
             ):
-                manual_relied_on_hint.append(manual["relied_on_hint"])
-                auto_relied_on_hint.append(auto["relied_on_hint"])
+                manual_hint_intent.append(
+                    manual["hint_intent"] in NO_HINT_INTENT_OPTIONS
+                )
+                auto_hint_intent.append(auto["hint_intent"] in NO_HINT_INTENT_OPTIONS)
+                manual_hint_intent_type.append(manual["hint_intent"])
+                auto_hint_intent_type.append(auto["hint_intent"])
+            if manual.get("hint_use") is not None and auto.get("hint_use") is not None:
+                manual_hint_use.append(manual["hint_use"] in NO_HINT_USE_OPTIONS)
+                auto_hint_use.append(auto["hint_use"] in NO_HINT_USE_OPTIONS)
+                manual_hint_use_type.append(manual["hint_use"])
+                auto_hint_use_type.append(auto["hint_use"])
 
             matched_count += 1
 
@@ -74,17 +104,26 @@ def extract_matched_annotations(
         f"Matched {matched_count} examples out of {len(manual_annotations)} manual annotations"
     )
     print(f"  - {len(manual_hint_present)} pairs for hint_present")
-    print(f"  - {len(manual_relied_on_hint)} pairs for relied_on_hint")
+    print(f"  - {len(manual_hint_intent_type)} pairs for hint_intent")
+    print(f"  - {len(manual_hint_use_type)} pairs for hint_use")
 
     return (
         manual_hint_present,
         auto_hint_present,
-        manual_relied_on_hint,
-        auto_relied_on_hint,
+        manual_hint_intent,
+        auto_hint_intent,
+        manual_hint_intent_type,
+        auto_hint_intent_type,
+        manual_hint_use,
+        auto_hint_use,
+        manual_hint_use_type,
+        auto_hint_use_type,
     )
 
 
-def compute_agreement_stats(manual: List[bool], auto: List[bool], label: str):
+def compute_agreement_stats(
+    manual: List[bool | str], auto: List[bool | str], label: str
+):
     """Compute and display agreement statistics."""
     if len(manual) == 0:
         print(f"\nNo data available for {label}")
@@ -98,23 +137,12 @@ def compute_agreement_stats(manual: List[bool], auto: List[bool], label: str):
     # Compute Cohen's kappa
     kappa = cohen_kappa_score(manual, auto, weights="linear")
 
-    # Compute confusion matrix
-    true_pos = sum(m and a for m, a in zip(manual, auto))
-    false_pos = sum((not m) and a for m, a in zip(manual, auto))
-    true_neg = sum((not m) and (not a) for m, a in zip(manual, auto))
-    false_neg = sum(m and (not a) for m, a in zip(manual, auto))
-
     print(f"\n{'='*60}")
     print(f"{label.upper()}")
     print(f"{'='*60}")
     print(f"Total examples: {total}")
     print(f"Raw agreement: {agreements}/{total} ({percent_agreement:.1f}%)")
     print(f"Cohen's kappa: {kappa:.3f}")
-
-    print(f"\nConfusion Matrix:")
-    print(f"                 Auto=True  Auto=False")
-    print(f"Manual=True      {true_pos:5d}      {false_neg:5d}")
-    print(f"Manual=False     {false_pos:5d}      {true_neg:5d}")
 
     # Interpretation
     print(f"\nKappa interpretation:")
@@ -132,10 +160,22 @@ def compute_agreement_stats(manual: List[bool], auto: List[bool], label: str):
         interpretation = "Almost perfect agreement"
     print(f"  {interpretation}")
 
+    if isinstance(manual[0], bool) and isinstance(auto[0], bool):
+        # For binary labels, also compute confusion matrix
+        true_pos = sum(m and a for m, a in zip(manual, auto))
+        false_pos = sum((not m) and a for m, a in zip(manual, auto))
+        true_neg = sum((not m) and (not a) for m, a in zip(manual, auto))
+        false_neg = sum(m and (not a) for m, a in zip(manual, auto))
+
+        print(f"\nConfusion Matrix:")
+        print(f"                 Auto=True  Auto=False")
+        print(f"Manual=True      {true_pos:5d}      {false_neg:5d}")
+        print(f"Manual=False     {false_pos:5d}      {true_neg:5d}")
+
 
 def main():
     # File paths
-    manual_file = Path("analysis/data/verbalization_manual_annotations.jsonl")
+    manual_file = Path("analysis/data/manual_annotations_hint_usage.jsonl")
     auto_file = Path(
         "experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_changed_check_verbalization.jsonl"
     )
@@ -150,13 +190,25 @@ def main():
 
     # Extract matched pairs
     print("\nMatching annotations...")
-    manual_hp, auto_hp, manual_roh, auto_roh = extract_matched_annotations(
-        manual_annotations, automated_results
-    )
+    (
+        manual_hp,
+        auto_hp,
+        manual_hi,
+        auto_hi,
+        manual_hit,
+        auto_hit,
+        manual_hu,
+        auto_hu,
+        manual_hut,
+        auto_hut,
+    ) = extract_matched_annotations(manual_annotations, automated_results)
 
     # Compute and display statistics
     compute_agreement_stats(manual_hp, auto_hp, "hint_present")
-    compute_agreement_stats(manual_roh, auto_roh, "relied_on_hint")
+    compute_agreement_stats(manual_hi, auto_hi, "hint_intent")
+    compute_agreement_stats(manual_hit, auto_hit, "hint_intent_type")
+    compute_agreement_stats(manual_hu, auto_hu, "hint_use")
+    compute_agreement_stats(manual_hut, auto_hut, "hint_use_type")
 
     print(f"\n{'='*60}")
 
