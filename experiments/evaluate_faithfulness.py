@@ -82,11 +82,12 @@ if __name__ == "__main__":
                 seed=args.seed,
             ).items()
         }
-    for k,v in main_results.items():
+    for k, v in main_results.items():
         if isinstance(v, float):
             main_results[k] = round(v, 3)
+    per_example_results = main_results.pop("per_example_results", None)
     all_results = {"main_results": main_results, "bootstrap_results": bootstrap_results}
     if args.include_per_example_results:
-        all_results["per_example_results"] = main_results.get("per_example_results", [])
+        all_results["per_example_results"] = per_example_results
     with open(args.output_file, "w") as f:
         json.dump(all_results, f, indent=2)
