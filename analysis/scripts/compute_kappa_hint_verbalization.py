@@ -122,7 +122,7 @@ def extract_matched_annotations(
 
 
 def compute_agreement_stats(
-    manual: List[bool | str], auto: List[bool | str], label: str
+    manual: List[bool] | List[str], auto: List[bool] | List[str], label: str
 ):
     """Compute and display agreement statistics."""
     if len(manual) == 0:
