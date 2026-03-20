@@ -13,8 +13,8 @@ from sklearn.metrics import cohen_kappa_score
 
 from reasoning_models_lie.evaluation.faithfulness import parse_json_string
 
-NO_HINT_INTENT_OPTIONS = frozenset({"d", "e"})
-NO_HINT_USE_OPTIONS = frozenset({"d"})
+HINT_INTENDED_OPTIONS = frozenset({"a", "b", "c"})
+HINT_USED_OPTIONS = frozenset({"a", "b", "c"})
 
 
 def load_jsonl(filepath: Path) -> List[Dict[str, Any]]:
@@ -87,14 +87,14 @@ def extract_matched_annotations(
                 and auto.get("hint_intent") is not None
             ):
                 manual_hint_intent.append(
-                    manual["hint_intent"] in NO_HINT_INTENT_OPTIONS
+                    manual["hint_intent"] in HINT_INTENDED_OPTIONS
                 )
-                auto_hint_intent.append(auto["hint_intent"] in NO_HINT_INTENT_OPTIONS)
+                auto_hint_intent.append(auto["hint_intent"] in HINT_INTENDED_OPTIONS)
                 manual_hint_intent_type.append(manual["hint_intent"])
                 auto_hint_intent_type.append(auto["hint_intent"])
             if manual.get("hint_use") is not None and auto.get("hint_use") is not None:
-                manual_hint_use.append(manual["hint_use"] in NO_HINT_USE_OPTIONS)
-                auto_hint_use.append(auto["hint_use"] in NO_HINT_USE_OPTIONS)
+                manual_hint_use.append(manual["hint_use"] in HINT_USED_OPTIONS)
+                auto_hint_use.append(auto["hint_use"] in HINT_USED_OPTIONS)
                 manual_hint_use_type.append(manual["hint_use"])
                 auto_hint_use_type.append(auto["hint_use"])
 
