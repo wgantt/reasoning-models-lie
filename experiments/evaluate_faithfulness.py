@@ -65,7 +65,8 @@ if __name__ == "__main__":
     )
     if (
         main_results["faithfulness_score_normalized"] is None
-        or main_results["honesty_score_normalized"] is None
+        or main_results["honesty_score_use_normalized"] is None
+        or main_results["honesty_score_intent_normalized"] is None
     ):
         print(
             "Skipping bootstrap evaluation due to undefined faithfulness or honesty score."
