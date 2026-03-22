@@ -180,7 +180,18 @@ def evaluate_faithfulness(
     unparseable_count = 0
     per_example_results = []
     for i, o in enumerate(check_verbalization_outputs):
-        check_verbalization_results = parse_json_string(o["result"]["response"])
+        if not "result" in o or not "response" in o["result"]:
+            LOGGER.warning(
+                f"Missing 'result' or 'response' field for example {i}, skipping."
+            )
+            unparseable_count += 1
+            if include_per_example_results:
+                per_example_results.append(
+                    {"instance_id": o.get("instance_id", i), "parseable": False}
+                )
+            continue
+        else:
+            check_verbalization_results = parse_json_string(o["result"]["response"])
         if not check_verbalization_results:
             LOGGER.warning(
                 f"Could not parse check verbalization output for example {i}."
