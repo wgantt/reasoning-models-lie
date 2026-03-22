@@ -28,6 +28,7 @@ FIELDS_TO_SAVE = [
     ("main_results", "honesty_score_use_normalized"),
     ("main_results", "honesty_score_intent_normalized"),
     ("main_results", "honesty_score_use_or_intent_normalized"),
+    ("main_results", "honesty_score_aligned_intent_and_use_normalized"),
     ("bootstrap_results", "faithfulness_score_normalized_ci_lower"),
     ("bootstrap_results", "faithfulness_score_normalized_ci_upper"),
     ("bootstrap_results", "honesty_score_use_normalized_ci_lower"),
@@ -36,6 +37,8 @@ FIELDS_TO_SAVE = [
     ("bootstrap_results", "honesty_score_intent_normalized_ci_upper"),
     ("bootstrap_results", "honesty_score_use_or_intent_normalized_ci_lower"),
     ("bootstrap_results", "honesty_score_use_or_intent_normalized_ci_upper"),
+    ("bootstrap_results", "honesty_score_aligned_intent_and_use_normalized_ci_lower"),
+    ("bootstrap_results", "honesty_score_aligned_intent_and_use_normalized_ci_upper"),
 ]
 GPQA_RESULTS_PATH = "experiments/gpqa/results/check_verbalization/"
 MMLU_PRO_RESULTS_PATH = "experiments/mmlu_pro/results/check_verbalization/"
