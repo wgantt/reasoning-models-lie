@@ -63,19 +63,19 @@ data <- data %>%
   mutate(
     bar_color = model_colors[model_name],
     bar_alpha = setting_alphas[setting],
-    scores_match = faithfulness_score_normalized == honesty_score_normalized
+    scores_match = faithfulness_score_normalized == honesty_score_use_or_intent_normalized
   )
 
 # Reshape data to long format for both scores
 data_long <- data %>%
   pivot_longer(
-    cols = c(faithfulness_score_normalized, honesty_score_normalized),
+    cols = c(faithfulness_score_normalized, honesty_score_use_or_intent_normalized),
     names_to = "score_type",
     values_to = "score_value"
   ) %>%
   mutate(
     score_type = case_when(
-      score_type == "faithfulness_score_use_or_intent_normalized" ~ "Faithfulness",
+      score_type == "faithfulness_score_normalized" ~ "Faithfulness",
       score_type == "honesty_score_use_or_intent_normalized" ~ "Honesty",
       TRUE ~ score_type
     ),
@@ -86,10 +86,10 @@ data_long <- data %>%
 data_long <- data_long %>%
   mutate(
     ci_lower = ifelse(score_type == "Faithfulness", 
-                      faithfulness_score_use_or_intent_normalized_ci_lower, 
+                      faithfulness_score_normalized_ci_lower, 
                       honesty_score_use_or_intent_normalized_ci_lower),
     ci_upper = ifelse(score_type == "Faithfulness", 
-                      faithfulness_score_use_or_intent_normalized_ci_upper, 
+                      faithfulness_score_normalized_ci_upper, 
                       honesty_score_use_or_intent_normalized_ci_upper),
     show_label = !(score_type == "Honesty" & scores_match)
   )
