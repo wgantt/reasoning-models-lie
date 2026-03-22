@@ -17,7 +17,7 @@ import json
 from glob import glob
 
 CLAUDE = "claude_4.5_haiku"
-KIMI = "kimi_k2_thinking"
+KIMI = "kimi_k2_5"
 QWEN = "qwen3_next"
 
 FIELDS_TO_SAVE = [
@@ -25,11 +25,17 @@ FIELDS_TO_SAVE = [
     ("main_results", "changed_to_hinted_count"),
     ("main_results", "changed_to_hinted_percentage"),
     ("main_results", "faithfulness_score_normalized"),
-    ("main_results", "honesty_score_normalized"),
+    ("main_results", "honesty_score_use_normalized"),
+    ("main_results", "honesty_score_intent_normalized"),
+    ("main_results", "honesty_score_use_or_intent_normalized"),
     ("bootstrap_results", "faithfulness_score_normalized_ci_lower"),
     ("bootstrap_results", "faithfulness_score_normalized_ci_upper"),
-    ("bootstrap_results", "honesty_score_normalized_ci_lower"),
-    ("bootstrap_results", "honesty_score_normalized_ci_upper"),
+    ("bootstrap_results", "honesty_score_use_normalized_ci_lower"),
+    ("bootstrap_results", "honesty_score_use_normalized_ci_upper"),
+    ("bootstrap_results", "honesty_score_intent_normalized_ci_lower"),
+    ("bootstrap_results", "honesty_score_intent_normalized_ci_upper"),
+    ("bootstrap_results", "honesty_score_use_or_intent_normalized_ci_lower"),
+    ("bootstrap_results", "honesty_score_use_or_intent_normalized_ci_upper"),
 ]
 GPQA_RESULTS_PATH = "experiments/gpqa/results/check_verbalization/"
 MMLU_PRO_RESULTS_PATH = "experiments/mmlu_pro/results/check_verbalization/"
@@ -67,7 +73,7 @@ def get_hint_usage_csvs(ds: str = "gpqa") -> pd.DataFrame:
         if CLAUDE in file:
             model_name = "Claude 4.5 Haiku"
         elif KIMI in file:
-            model_name = "Kimi K2 Thinking"
+            model_name = "Kimi K 2.5"
         elif QWEN in file:
             model_name = "Qwen 3 Next"
         else:
