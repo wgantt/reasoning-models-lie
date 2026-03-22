@@ -113,6 +113,7 @@ def bootstrap_evaluate_faithfulness(
             sample_results["faithfulness_score_normalized"] is None
             or sample_results["honesty_score_use_normalized"] is None
             or sample_results["honesty_score_intent_normalized"] is None
+            or sample_results["honesty_score_aligned_intent_and_use_normalized"] is None
         ):
             LOGGER.warning(
                 f"Skipping bootstrap sample due to undefined faithfulness or honesty score."
