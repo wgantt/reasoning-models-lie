@@ -266,6 +266,7 @@ def evaluate_faithfulness(
     changed_to_nonhinted = total - changed_to_hinted
     p = changed_to_hinted / total if total > 0 else 0
     q = changed_to_nonhinted / total if total > 0 else 0
+
     # normalization term
     z = (p - q / (num_options - 2)) / p if p > 0 else 0
 

@@ -17,7 +17,7 @@ python experiments/prompt.py \
     --max-thinking-tokens $OPENAI_MAX_THINKING_TOKENS \
     --reasoning-effort medium \
     --examples-per-write 200 \
-    --max-concurrent-requests 3
+    --max-concurrent-requests 10
 
 python experiments/evaluate_faithfulness.py \
     gpqa \
