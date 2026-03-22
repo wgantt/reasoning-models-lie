@@ -75,8 +75,8 @@ data_long <- data %>%
   ) %>%
   mutate(
     score_type = case_when(
-      score_type == "faithfulness_score_normalized" ~ "Faithfulness",
-      score_type == "honesty_score_normalized" ~ "Honesty",
+      score_type == "faithfulness_score_use_normalized" ~ "Faithfulness",
+      score_type == "honesty_score_use_normalized" ~ "Honesty",
       TRUE ~ score_type
     ),
     score_type = factor(score_type, levels = c("Faithfulness", "Honesty"))
@@ -86,11 +86,11 @@ data_long <- data %>%
 data_long <- data_long %>%
   mutate(
     ci_lower = ifelse(score_type == "Faithfulness", 
-                      faithfulness_score_normalized_ci_lower, 
-                      honesty_score_normalized_ci_lower),
+                      faithfulness_score_use_normalized_ci_lower, 
+                      honesty_score_use_normalized_ci_lower),
     ci_upper = ifelse(score_type == "Faithfulness", 
-                      faithfulness_score_normalized_ci_upper, 
-                      honesty_score_normalized_ci_upper),
+                      faithfulness_score_use_normalized_ci_upper, 
+                      honesty_score_use_normalized_ci_upper),
     show_label = !(score_type == "Honesty" & scores_match)
   )
 
@@ -196,7 +196,7 @@ p <- p + theme(
 
 # Save the plot
 ggsave(
-  "analysis/plots/verbalization_barplot.png",
+  "analysis/plots/verbalization_use_barplot.png",
   plot = p,
   width = 20,
   height = 8,
