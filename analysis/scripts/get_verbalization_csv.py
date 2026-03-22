@@ -17,7 +17,7 @@ import json
 from glob import glob
 
 CLAUDE = "claude_4.5_haiku"
-KIMI = "kimi_k2.5"
+KIMI = "kimi_k2_5"
 QWEN = "qwen3_next"
 
 FIELDS_TO_SAVE = [
