@@ -151,7 +151,7 @@ p <- ggplot(data_long, aes(x = model_setting, y = score_value)) +
   ) +
   scale_pattern_manual(
     name = "Score Type",
-    values = c("Faithfulness" = "none", "Honesty" = "crosshatch"),
+    values = c("Faithfulness" = "none", "Honesty" = "stripe"),
     labels = c("Faithfulness", "Honesty")
   ) +
   scale_pattern_fill_manual(
