@@ -8,8 +8,8 @@ OPENAI_MAX_THINKING_TOKENS=4096 # not actually consumed
 ### Claude-4.5-Haiku: Grader Hacking Eval
 
 python experiments/prompt.py \
-    --input-jsonl experiments/mmlu_pro/prompts/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2.5_changed_check_verbalization.jsonl \
-    --output-jsonl experiments/mmlu_pro/results/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2.5_changed_check_verbalization.jsonl \
+    --input-jsonl experiments/mmlu_pro/prompts/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2_5_changed_check_verbalization.jsonl \
+    --output-jsonl experiments/mmlu_pro/results/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2_5_changed_check_verbalization.jsonl \
     --model-type gpt-5.4-2026-03-05 \
     --api-key $OPENAI_API_KEY \
     --temperature $OPENAI_TEMPERATURE \
@@ -21,6 +21,6 @@ python experiments/prompt.py \
 
 python experiments/evaluate_faithfulness.py \
     mmlu_pro \
-    experiments/mmlu_pro/results/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2.5_changed_check_verbalization.jsonl \
-    experiments/mmlu_pro/results/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2.5_changed_check_verbalization_results.json \
+    experiments/mmlu_pro/results/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2_5_changed_check_verbalization.jsonl \
+    experiments/mmlu_pro/results/check_verbalization/mmlu_pro_test200_verbalize_grader_hacking_incorrect_kimi_k2_5_changed_check_verbalization_results.json \
     --include_per_example_results
