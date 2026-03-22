@@ -29,7 +29,7 @@ experimental_data <- experimental_data %>%
     ),
     model_name = case_when(
       model_name == "Claude 4.5 Haiku" ~ "Claude",
-      model_name == "Kimi K2 Thinking" ~ "Kimi",
+      model_name == "Kimi K2.5" ~ "Kimi",
       model_name == "Qwen 3 Next" ~ "Qwen",
       TRUE ~ model_name
     )
@@ -45,7 +45,7 @@ baseline_data <- baseline_data %>%
     ),
     model_name = case_when(
       model_name == "Claude 4.5 Haiku" ~ "Claude",
-      model_name == "Kimi K2 Thinking" ~ "Kimi",
+      model_name == "Kimi K2.5" ~ "Kimi",
       model_name == "Qwen 3 Next" ~ "Qwen",
       TRUE ~ model_name
     )

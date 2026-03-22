@@ -29,8 +29,8 @@ data <- data %>%
     model_setting = factor(model_setting, levels = c(
       "Claude 4.5 Haiku_Correct Hint",
       "Claude 4.5 Haiku_Incorrect Hint",
-      "Kimi K2 Thinking_Correct Hint",
-      "Kimi K2 Thinking_Incorrect Hint",
+      "Kimi K2.5_Correct Hint",
+      "Kimi K2.5_Incorrect Hint",
       "Qwen 3 Next_Correct Hint",
       "Qwen 3 Next_Incorrect Hint"
     )),
@@ -48,7 +48,7 @@ data <- data %>%
 # Define colors for models
 model_colors <- c(
   "Claude 4.5 Haiku" = "#D2691E",  # Light orange
-  "Kimi K2 Thinking" = "#ADD8E6",   # Light blue
+  "Kimi K2.5" = "#ADD8E6",   # Light blue
   "Qwen 3 Next" = "#90EE90"      # Light green
 )
 
