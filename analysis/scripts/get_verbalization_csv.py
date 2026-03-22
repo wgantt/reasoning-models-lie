@@ -17,7 +17,7 @@ import json
 from glob import glob
 
 CLAUDE = "claude_4.5_haiku"
-KIMI = "kimi_k2_5"
+KIMI = "kimi_k2.5"
 QWEN = "qwen3_next"
 
 FIELDS_TO_SAVE = [
@@ -73,7 +73,7 @@ def get_hint_usage_csvs(ds: str = "gpqa") -> pd.DataFrame:
         if CLAUDE in file:
             model_name = "Claude 4.5 Haiku"
         elif KIMI in file:
-            model_name = "Kimi K 2.5"
+            model_name = "Kimi K2.5"
         elif QWEN in file:
             model_name = "Qwen 3 Next"
         else:
