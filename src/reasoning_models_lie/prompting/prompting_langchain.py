@@ -475,7 +475,6 @@ class ReasoningModelClientLangChain:
                 LangChainModelType.CLAUDE_4_6_SONNET,
                 LangChainModelType.CLAUDE_4_5_HAIKU,
             }:
-                LOGGER.warning(response.content)
                 if not response.content or not isinstance(response.content, list):
                     LOGGER.warning("Response content is not in expected list format")
                     return None
