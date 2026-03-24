@@ -13,9 +13,9 @@ echo ""
 
 # Array of all check_verbalization scripts
 declare -a SCRIPTS=(
-    # "build_gpqa_check_verbalization_prompts.sh"
-    # "grader_hacking/check_verbalization_grader_hacking_correct_claude.sh"
-    # "grader_hacking/check_verbalization_grader_hacking_correct_qwen.sh"
+    "build_gpqa_check_verbalization_prompts.sh"
+    "grader_hacking/check_verbalization_grader_hacking_correct_claude.sh"
+    "grader_hacking/check_verbalization_grader_hacking_correct_qwen.sh"
     "grader_hacking/check_verbalization_grader_hacking_correct_kimi.sh"
     "grader_hacking/check_verbalization_grader_hacking_incorrect_claude.sh"
     "grader_hacking/check_verbalization_grader_hacking_incorrect_qwen.sh"
