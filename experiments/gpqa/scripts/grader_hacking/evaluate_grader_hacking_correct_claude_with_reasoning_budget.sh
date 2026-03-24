@@ -3,11 +3,9 @@ CLAUDE_API_KEY=$ANTHROPIC_API_KEY
 
 # Settings from the Anthropic paper
 CLAUDE_TEMPERATURE=0.0
-CLAUDE_MAX_TOKENS=12000
-CLAUDE_MAX_THINKING_TOKENS=10000
 
-max_thinking_tokens_values=(2000 4000 8000 16000)
-max_tokens_values=(4000 8000 16000 32000)
+max_thinking_tokens_values=(1024 2000 4000 8000 16000)
+max_tokens_values=(2048 4000 8000 16000 32000)
 
 ### Claude 4.5 Haiku: Grader Hacking 
 for idx in "${!max_thinking_tokens_values[@]}";

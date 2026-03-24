@@ -6,9 +6,9 @@ GET_CHANGED_RESPONSES=$PROJECT_ROOT/experiments/get_change_to_hint_examples.py
 
 CLAUDE_BASELINE=$ALL_RESPONSES/gpqa_diamond_verbalize_baseline_claude_4.5_haiku.jsonl
 
-BASELINES=("gpqa_diamond_verbalize_baseline_claude_4.5_haiku_2000.jsonl" "gpqa_diamond_verbalize_baseline_claude_4.5_haiku_4000.jsonl" "gpqa_diamond_verbalize_baseline_claude_4.5_haiku_8000.jsonl" "gpqa_diamond_verbalize_baseline_claude_4.5_haiku_16000.jsonl")
+BASELINES=("gpqa_diamond_verbalize_baseline_claude_4.5_haiku_1024.jsonl" "gpqa_diamond_verbalize_baseline_claude_4.5_haiku_2000.jsonl" "gpqa_diamond_verbalize_baseline_claude_4.5_haiku_4000.jsonl" "gpqa_diamond_verbalize_baseline_claude_4.5_haiku_8000.jsonl" "gpqa_diamond_verbalize_baseline_claude_4.5_haiku_16000.jsonl")
 
-HINTED_RESPONSES=("gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_2000.jsonl" "gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_4000.jsonl" "gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_8000.jsonl" "gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_16000.jsonl")
+HINTED_RESPONSES=("gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_1024.jsonl" "gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_2000.jsonl" "gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_4000.jsonl" "gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_8000.jsonl" "gpqa_diamond_verbalize_grader_hacking_correct_claude_4.5_haiku_16000.jsonl")
 
 # Claude 4.5 Haiku
 for i in "${!BASELINES[@]}"; do
