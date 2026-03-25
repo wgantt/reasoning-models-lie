@@ -257,6 +257,9 @@ class ReasoningModelClientOpenRouter:
             if self.model_type in _THINK_TAG_MODELS:
                 # Models that embed reasoning in <think> tags within content
                 content = response.choices[0].message.content
+                if content is None:
+                    LOGGER.warning("Response content is None")
+                    return None
                 if not isinstance(content, str):
                     LOGGER.warning("Response content is not a string")
                     return None
@@ -276,6 +279,7 @@ class ReasoningModelClientOpenRouter:
                 # Most OpenRouter reasoning models return reasoning as a separate field
                 reasoning = response.choices[0].message.reasoning
                 if reasoning is None:
+                    LOGGER.warning("Reasoning field is None")
                     return None
                 return reasoning.strip()
         except (KeyError, IndexError, AttributeError) as e:
@@ -301,6 +305,9 @@ class ReasoningModelClientOpenRouter:
         try:
             content = response.choices[0].message.content
             if self.model_type in _THINK_TAG_MODELS:
+                if content is None:
+                    LOGGER.warning("Response content is None")
+                    return ""
                 if not isinstance(content, str):
                     raise ResponseParsingError("Response content is not a string")
                 extracted = re.findall(RESPONSE_REGEX, content.strip(), re.DOTALL)
@@ -308,6 +315,9 @@ class ReasoningModelClientOpenRouter:
                     LOGGER.warning("No response content found after reasoning trace.")
                     return ""
                 return extracted[0].strip()
+            elif content is None:
+                LOGGER.warning("Response content is None")
+                return ""
             else:
                 return content.strip()
         except (KeyError, IndexError, AttributeError) as e:
