@@ -3,8 +3,8 @@ QWEN_API_KEY=$OPENROUTER_API_KEY
 
 QWEN_TEMPERATURE=0.0
 
-max_thinking_tokens_values=(1024 2000 4000 8000 16000)
-max_tokens_values=(2048 4000 8000 12000 20000)
+max_thinking_tokens_values=(1024 2000 4000 8000 16000 32000)
+max_tokens_values=(1024 2000 4000 8000 16000 32000)
 
 ### Qwen3-Next: Grader Hacking Correct
 for idx in "${!max_thinking_tokens_values[@]}";
