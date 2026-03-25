@@ -22,7 +22,7 @@ do
         --temperature $QWEN_TEMPERATURE \
         --max-tokens $max_tokens \
         --max-thinking-tokens $max_thinking_tokens \
-        --max-concurrent-requests 1 \
+        --max-concurrent-requests 20 \
         --examples-per-write 200
 
     python experiments/evaluate_multiple_choice.py \

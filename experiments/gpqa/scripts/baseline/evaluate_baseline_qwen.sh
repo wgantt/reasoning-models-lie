@@ -20,4 +20,5 @@ python experiments/prompt.py \
 
 python experiments/evaluate_multiple_choice.py \
     experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_baseline_qwen3_next.jsonl \
-    experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_baseline_qwen3_next_results.json
+    experiments/gpqa/results/all_responses/gpqa_diamond_verbalize_baseline_qwen3_next_results.json \
+    --include_per_example

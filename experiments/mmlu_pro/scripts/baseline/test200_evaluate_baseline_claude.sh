@@ -19,4 +19,5 @@ python experiments/prompt.py \
 
 python experiments/evaluate_multiple_choice.py \
     experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_baseline_claude_4.5_haiku.jsonl \
-    experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_baseline_claude_4.5_haiku_results.json
+    experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_baseline_claude_4.5_haiku_results.json \
+    --include_per_example
