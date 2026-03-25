@@ -20,4 +20,5 @@ python experiments/prompt.py \
 
 python experiments/evaluate_multiple_choice.py \
     experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_baseline_qwen3_next.jsonl \
-    experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_baseline_qwen3_next_results.json
+    experiments/mmlu_pro/results/all_responses/mmlu_pro_test200_verbalize_baseline_qwen3_next_results.json \
+    --include_per_example
