@@ -38,6 +38,41 @@ python experiments/evaluate_faithfulness.py \
     experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_changed_check_verbalization_results.json \
     --include_per_example_results
 
+echo "GRADER HACKING - QWEN3 NEXT - CORRECT - 1024"
+python experiments/evaluate_faithfulness.py \
+    gpqa \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_1024_changed_check_verbalization.jsonl \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_1024_changed_check_verbalization_results.json \
+    --include_per_example_results
+
+echo "GRADER HACKING - QWEN3 NEXT - CORRECT - 2000"
+python experiments/evaluate_faithfulness.py \
+    gpqa \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_2000_changed_check_verbalization.jsonl \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_2000_changed_check_verbalization_results.json \
+    --include_per_example_results
+
+echo "GRADER HACKING - QWEN3 NEXT - CORRECT - 4000"
+python experiments/evaluate_faithfulness.py \
+    gpqa \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_4000_changed_check_verbalization.jsonl \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_4000_changed_check_verbalization_results.json \
+    --include_per_example_results
+
+echo "GRADER HACKING - QWEN3 NEXT - CORRECT - 8000"
+python experiments/evaluate_faithfulness.py \
+    gpqa \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_8000_changed_check_verbalization.jsonl \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_8000_changed_check_verbalization_results.json \
+    --include_per_example_results
+
+echo "GRADER HACKING - QWEN3 NEXT - CORRECT - 16000"
+python experiments/evaluate_faithfulness.py \
+    gpqa \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_16000_changed_check_verbalization.jsonl \
+    experiments/gpqa/results/check_verbalization/gpqa_diamond_verbalize_grader_hacking_correct_qwen3_next_16000_changed_check_verbalization_results.json \
+    --include_per_example_results
+
 echo "GRADER HACKING - QWEN3 NEXT - INCORRECT"
 python experiments/evaluate_faithfulness.py \
     gpqa \
