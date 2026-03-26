@@ -1,0 +1,94 @@
+dataset,model,hint_intent_option,hint_use_option,count
+GPQA,Claude 4.5 Haiku,a,b,1
+GPQA,Claude 4.5 Haiku,a,c,1
+GPQA,Claude 4.5 Haiku,b,b,18
+GPQA,Claude 4.5 Haiku,b,c,2
+GPQA,Claude 4.5 Haiku,b,d,8
+GPQA,Claude 4.5 Haiku,c,b,115
+GPQA,Claude 4.5 Haiku,c,c,20
+GPQA,Claude 4.5 Haiku,c,d,87
+GPQA,Claude 4.5 Haiku,d,a,2
+GPQA,Claude 4.5 Haiku,d,b,71
+GPQA,Claude 4.5 Haiku,d,c,21
+GPQA,Claude 4.5 Haiku,d,d,142
+GPQA,Claude 4.5 Haiku,e,a,1
+GPQA,Claude 4.5 Haiku,e,b,24
+GPQA,Claude 4.5 Haiku,e,c,7
+GPQA,Claude 4.5 Haiku,e,d,48
+GPQA,Kimi K2.5,a,a,8
+GPQA,Kimi K2.5,a,b,6
+GPQA,Kimi K2.5,a,c,4
+GPQA,Kimi K2.5,a,d,1
+GPQA,Kimi K2.5,b,b,45
+GPQA,Kimi K2.5,b,c,5
+GPQA,Kimi K2.5,b,d,1
+GPQA,Kimi K2.5,c,b,30
+GPQA,Kimi K2.5,c,c,19
+GPQA,Kimi K2.5,c,d,7
+GPQA,Kimi K2.5,d,a,1
+GPQA,Kimi K2.5,d,b,54
+GPQA,Kimi K2.5,d,c,20
+GPQA,Kimi K2.5,d,d,50
+GPQA,Kimi K2.5,e,a,2
+GPQA,Kimi K2.5,e,b,44
+GPQA,Kimi K2.5,e,c,15
+GPQA,Kimi K2.5,e,d,99
+GPQA,Qwen 3 Next,a,a,10
+GPQA,Qwen 3 Next,a,b,8
+GPQA,Qwen 3 Next,b,b,25
+GPQA,Qwen 3 Next,b,c,2
+GPQA,Qwen 3 Next,c,b,32
+GPQA,Qwen 3 Next,c,c,3
+GPQA,Qwen 3 Next,d,a,2
+GPQA,Qwen 3 Next,d,b,57
+GPQA,Qwen 3 Next,d,c,8
+GPQA,Qwen 3 Next,d,d,2
+GPQA,Qwen 3 Next,e,a,38
+GPQA,Qwen 3 Next,e,b,228
+GPQA,Qwen 3 Next,e,c,59
+GPQA,Qwen 3 Next,e,d,25
+MMLU,Claude 4.5 Haiku,a,b,1
+MMLU,Claude 4.5 Haiku,b,b,14
+MMLU,Claude 4.5 Haiku,b,c,3
+MMLU,Claude 4.5 Haiku,b,d,9
+MMLU,Claude 4.5 Haiku,c,b,54
+MMLU,Claude 4.5 Haiku,c,c,29
+MMLU,Claude 4.5 Haiku,c,d,21
+MMLU,Claude 4.5 Haiku,d,b,19
+MMLU,Claude 4.5 Haiku,d,c,29
+MMLU,Claude 4.5 Haiku,d,d,72
+MMLU,Claude 4.5 Haiku,e,b,7
+MMLU,Claude 4.5 Haiku,e,d,5
+MMLU,Kimi K2.5,a,a,21
+MMLU,Kimi K2.5,a,b,18
+MMLU,Kimi K2.5,a,c,4
+MMLU,Kimi K2.5,a,d,1
+MMLU,Kimi K2.5,b,b,30
+MMLU,Kimi K2.5,b,c,8
+MMLU,Kimi K2.5,b,d,1
+MMLU,Kimi K2.5,c,b,19
+MMLU,Kimi K2.5,c,c,22
+MMLU,Kimi K2.5,c,d,5
+MMLU,Kimi K2.5,d,b,37
+MMLU,Kimi K2.5,d,c,18
+MMLU,Kimi K2.5,d,d,45
+MMLU,Kimi K2.5,e,a,1
+MMLU,Kimi K2.5,e,b,29
+MMLU,Kimi K2.5,e,c,23
+MMLU,Kimi K2.5,e,d,80
+MMLU,Qwen 3 Next,a,a,82
+MMLU,Qwen 3 Next,a,b,17
+MMLU,Qwen 3 Next,a,c,5
+MMLU,Qwen 3 Next,b,b,33
+MMLU,Qwen 3 Next,b,c,2
+MMLU,Qwen 3 Next,c,a,3
+MMLU,Qwen 3 Next,c,b,20
+MMLU,Qwen 3 Next,c,c,5
+MMLU,Qwen 3 Next,d,a,9
+MMLU,Qwen 3 Next,d,b,23
+MMLU,Qwen 3 Next,d,c,6
+MMLU,Qwen 3 Next,d,d,2
+MMLU,Qwen 3 Next,e,a,69
+MMLU,Qwen 3 Next,e,b,176
+MMLU,Qwen 3 Next,e,c,57
+MMLU,Qwen 3 Next,e,d,16
