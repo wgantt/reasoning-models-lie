@@ -63,8 +63,8 @@ p <- ggplot(
     )
   ) +
   scale_x_continuous(
-    breaks = c(1024, 2048, 4096, 8192, 16384),
-    labels = c("1024", "2048", "4096", "8192", "16384"),
+    breaks = c(1024, 2000, 4000, 8000, 16000),
+    labels = c("1000", "2000", "4000", "8000", "16000"),
     trans = "log2"
   ) +
   scale_color_manual(
