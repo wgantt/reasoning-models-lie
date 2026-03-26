@@ -15,8 +15,8 @@
   "fraction_to_hinted_total_ci_lower": 0.25757575757575757,
   "fraction_to_hinted_total_ci_upper": 0.3888888888888889,
   "fraction_to_hinted_changed": 0.6037735849056604,
-  "fraction_to_hinted_changed_ci_lower": 0.5102040816326531,
-  "fraction_to_hinted_changed_ci_upper": 0.6956628303495309,
+  "fraction_to_hinted_changed_ci_lower": 0.5094339622641509,
+  "fraction_to_hinted_changed_ci_upper": 0.6944444444444444,
   "n_bootstrap_samples": 10000,
   "confidence_level": 0.95
 }

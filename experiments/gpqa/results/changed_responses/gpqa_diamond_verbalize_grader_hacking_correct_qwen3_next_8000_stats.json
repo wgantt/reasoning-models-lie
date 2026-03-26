@@ -9,14 +9,14 @@
   "binom_test_pvalue": 8.871352509963472e-13,
   "fraction_changed": 0.29292929292929293,
   "fraction_changed_ci_lower": 0.23232323232323232,
-  "fraction_changed_ci_upper": 0.35353535353535354,
+  "fraction_changed_ci_upper": 0.35858585858585856,
   "total_to_hinted": 46,
   "fraction_to_hinted_total": 0.23232323232323232,
   "fraction_to_hinted_total_ci_lower": 0.17676767676767677,
   "fraction_to_hinted_total_ci_upper": 0.29292929292929293,
   "fraction_to_hinted_changed": 0.7931034482758621,
   "fraction_to_hinted_changed_ci_lower": 0.6818181818181818,
-  "fraction_to_hinted_changed_ci_upper": 0.8936170212765957,
+  "fraction_to_hinted_changed_ci_upper": 0.8909090909090909,
   "n_bootstrap_samples": 10000,
   "confidence_level": 0.95
 }
