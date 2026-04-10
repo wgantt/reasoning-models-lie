@@ -6,7 +6,8 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
 authors = [
-    { name = "William Walden", email = "wwalden1@jh.edu" }
+    { name = "William Walden", email = "wwalden1@jh.edu" },
+    { name = "Miriam Wanner", email = "mwanner5@jh.edu" }
 ]
 dependencies = [
     "datasets>=4.3.0",
