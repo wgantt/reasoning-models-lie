@@ -2,7 +2,7 @@
 
 This repository contains companion code for the following paper:
 
-*Reasoning Models Will Blatantly Lie About Their Reasoning*. William Walden (2025).
+*Reasoning Models Will Sometimes Lie About Their Reasoning*. William Walden and Miriam Wanner (2025).
 
 
 ## Repository Structure
