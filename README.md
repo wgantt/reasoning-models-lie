@@ -17,9 +17,9 @@ This repository contains companion code for the following paper:
 │   ├── gpqa/                  # GPQA benchmark experiments
 │   └── mmlu_pro/              # MMLU-Pro benchmark experiments
 ├── analysis/                  # Analysis scripts and data
-│   ├── data/                  # Processed results (CSV files)
+│   ├── data/                  # Processed results (CSVs, manual annotations)
 │   ├── plots/                 # Generated figures (included in the paper)
-│   └── scripts/               # R and Python analysis scripts
+│   └── scripts/               # R and Python analysis scripts (plotting, IAA)
 └── tests/                     # Unit tests
 ```
 
@@ -135,7 +135,7 @@ source .env
 
 ### 3. Run the Experiments
 
-Steps (i)-(vi) below illustrate how to reproduce our results once the environment and API keys have been configured. Some of the steps are marked as "optional" because you can still conduct a complete, meaningful reproduction of the core results without running these steps. Technically speaking, however, *all* steps are optional: we include all of the files necessary to start from an arbitrary step and complete the reproduction from there. Just beware that each step will overwrite certain of those files.
+Steps (i)-(vii) below illustrate how to reproduce our results once the environment and API keys have been configured. Some of the steps are marked as "optional" because you can still conduct a complete, meaningful reproduction of the core results without running these steps. Technically speaking, however, *all* steps are optional: we include all of the files necessary to start from an arbitrary step and complete the reproduction from there. Just beware that each step will overwrite certain of those files.
 
 ### i. Construct evaluation prompts (Optional)
 
@@ -210,7 +210,7 @@ bash experiments/mmlu_pro/scripts/sycophancy_v1/test200_check_verbalization_syco
 (Note: there are no verbalization evaluation scripts for the baseline setting, since verbalization checks only make sense in hinted settings.) The verbalization results will be written to `experiments/{gpqa,mmlu_pro}/results/check_verbalization/`.
 
 
-## vi. Regenerate plots (Optional)
+### vi. Regenerate plots (Optional)
 
 Optionally, once you have completed steps (i)-(v), you can regenerate plots from the paper.
 
@@ -251,6 +251,18 @@ R
 source analysis/scripts/plot_accuracy.r
 ```
 
+### vii. Compute inter-annotator agreement (Optional)
+
+To assess the quality of the automated verbalization judgments, you can compute Cohen's kappa between human annotations and the automated results. Manual annotations are included in `analysis/data/verbalization_manual_annotations.jsonl` and were collected using the annotation script:
+
+```bash
+# Collect manual annotations (interactive)
+python analysis/scripts/annotate_hint_verbalization.py
+
+# Compute Cohen's kappa between manual and automated annotations
+python analysis/scripts/compute_kappa_hint_verbalization.py
+```
+
 ## Supported Models
 
 Below are the models for which inference is supported. Models with a '*' next to them are models for which experimental results are reported in the paper.
@@ -259,6 +271,12 @@ Below are the models for which inference is supported. Models with a '*' next to
 - Claude 3.7 Sonnet
 - Claude 4.5 Haiku*
 - Claude 4.5 Sonnet
+
+### OpenAI
+- GPT-5 Nano
+- GPT-5 Mini
+- GPT-5
+- GPT-5.2
 
 ### DeepSeek
 - DeepSeek R1
@@ -279,9 +297,9 @@ MIT License - see LICENSE file for details.
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{walden2025reasoning,
-  title={Reasoning Models Will Blatantly Lie About Their Reasoning},
-  author={Walden, William},
+@article{walden-wanner-2025-reasoning,
+  title={Reasoning Models Will Sometimes Lie About Their Reasoning},
+  author={Walden, William and Wanner, Miriam},
   year={2025}
 }
 ```
